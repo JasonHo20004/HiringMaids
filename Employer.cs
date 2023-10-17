@@ -12,13 +12,17 @@ namespace ConsoleApp1
         private float SalaryOffer { get; set; }
         private float Bonus { get; set; }
         private DomesticHelper[] HireHistory { get; set; }
+        private RatingHistory RatingHistory { get; set; }
+        private Contract Contract { get; set; }
 
-        public Employer(string name, string phoneNumber, string address, DateTime dob, string[] requirements, float salaryOffer, float bonus, DomesticHelper[] hireHistory) : base(name, phoneNumber, address, dob)
+        public Employer(string name, string phoneNumber, string address, DateTime dob, string[] requirements, float salaryOffer, float bonus, DomesticHelper[] hireHistory, RatingHistory ratingHistory, Contract contract) : base(name, phoneNumber, address, dob)
         {
-            Requirements = requirements;    
+            Requirements = requirements;
             SalaryOffer = salaryOffer;
             Bonus = bonus;
             HireHistory = hireHistory;
+            RatingHistory = ratingHistory;
+            Contract = contract;
         }
     }
 }

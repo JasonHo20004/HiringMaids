@@ -10,11 +10,15 @@ namespace ConsoleApp1
     {
         private string[] Skills { get; set; }
         private WorkHistory[] WorkHistory { get; set; }
+        private RatingHistory RatingHistory { get; set; }
+        private Contract Contract { get; set; }
 
-        public DomesticHelper(string name, string phoneNumber, string address, DateTime dob, string[] skills, WorkHistory[] workHistory) : base(name, phoneNumber, address, dob)
+        public DomesticHelper(string name, string phoneNumber, string address, DateTime dob, string[] skills, WorkHistory[] workHistory, RatingHistory ratingHistory, Contract contract) : base(name, phoneNumber, address, dob)
         {
             Skills = skills;
             WorkHistory = workHistory;
+            RatingHistory = ratingHistory;
+            Contract = contract;
         }
     }
 }
