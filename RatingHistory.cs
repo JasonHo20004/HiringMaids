@@ -14,7 +14,7 @@ namespace ConsoleApp1
         private DateTime StartDate { get; set; }
         private DateTime EndDate { get; set; }
 
-        private RatingHistory(float score, string comment, DateTime date, string address, float completion, float salary, DateTime startDate, DateTime endDate) : base(score, comment, date)
+        public RatingHistory(float score, string comment, DateTime date, string address, float completion, float salary, DateTime startDate, DateTime endDate) : base(score, comment, date)
         {
             Address = address;
             Completion = completion;

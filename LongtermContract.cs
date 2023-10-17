@@ -10,7 +10,7 @@ namespace ConsoleApp1
     {
         private int RenewalTimes { get; set; }
 
-        private LongtermContract(DateTime duration, string broker, float commission, string status, DomesticHelper domesticHelper, Employer employer, int renewalTimes) : base(duration, broker, commission, status, domesticHelper, employer)
+        public LongtermContract(DateTime duration, string broker, float commission, string status, DomesticHelper domesticHelper, Employer employer, int renewalTimes) : base(duration, broker, commission, status, domesticHelper, employer)
         {
             RenewalTimes = renewalTimes;
         }

@@ -13,7 +13,7 @@ namespace ConsoleApp1
         private string Address { get; set; }
         private DateTime Dob { get; set; }
 
-        private Person(string name, string phoneNumber, string address, DateTime dob)
+        public Person(string name, string phoneNumber, string address, DateTime dob)
         {
             Name = name;
             PhoneNumber = phoneNumber;

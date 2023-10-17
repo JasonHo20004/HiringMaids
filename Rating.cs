@@ -12,7 +12,7 @@ namespace ConsoleApp1
         private string Comment { get; set; }
         private DateTime Date { get; set; }
 
-        private Rating(float score, string comment, DateTime date)
+        public Rating(float score, string comment, DateTime date)
         {
             Score = score;
             Comment = comment;

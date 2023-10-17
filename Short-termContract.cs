@@ -11,7 +11,7 @@ namespace ConsoleApp1
         private int HoursWork { get; set; }
         private string Location { get; set; }
 
-        private ShorttermContract(DateTime duration, string broker, float commission, string status, DomesticHelper domesticHelper, Employer employer, int hoursWork, string location) : base(duration, broker, commission, status, domesticHelper, employer)
+        public ShorttermContract(DateTime duration, string broker, float commission, string status, DomesticHelper domesticHelper, Employer employer, int hoursWork, string location) : base(duration, broker, commission, status, domesticHelper, employer)
         {
             HoursWork = hoursWork;
             Location = location;

@@ -14,7 +14,7 @@ namespace ConsoleApp1
         private DateTime StartDate { get; set; }
         private DateTime EndDate { get; set; }
 
-        private WorkHistory(string address, float completion, float salary, DateTime startDate, DateTime endDate)
+        public WorkHistory(string address, float completion, float salary, DateTime startDate, DateTime endDate)
         {
             Address = address;
             Completion = completion;

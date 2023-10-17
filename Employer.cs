@@ -13,7 +13,7 @@ namespace ConsoleApp1
         private float Bonus { get; set; }
         private DomesticHelper[] HireHistory { get; set; }
 
-        private Employer(string name, string phoneNumber, string address, DateTime dob, string[] requirements, float salaryOffer, float bonus, DomesticHelper[] hireHistory) : base(name, phoneNumber, address, dob)
+        public Employer(string name, string phoneNumber, string address, DateTime dob, string[] requirements, float salaryOffer, float bonus, DomesticHelper[] hireHistory) : base(name, phoneNumber, address, dob)
         {
             Requirements = requirements;    
             SalaryOffer = salaryOffer;

@@ -15,7 +15,7 @@ namespace ConsoleApp1
         private DomesticHelper DomesticHelper { get; set; }
         private Employer Employer { get; set; }
 
-        private Contract(DateTime duration, string broker, float commission, string status, DomesticHelper domesticHelper, Employer employer)
+        public Contract(DateTime duration, string broker, float commission, string status, DomesticHelper domesticHelper, Employer employer)
         {
             Duration = duration;
             Broker = broker;
