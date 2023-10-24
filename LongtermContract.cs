@@ -8,11 +8,15 @@ namespace ConsoleApp1
 {
     public class LongtermContract : Contract
     {
-        private int RenewalTimes { get; set; }
+        // LongTerm Contract can renew
 
-        public LongtermContract(DateTime duration, string broker, float commission, string status, DomesticHelper domesticHelper, Employer employer, int renewalTimes) : base(duration, broker, commission, status, domesticHelper, employer)
+        // Attributes
+
+        // Constructor
+
+        // Methods
+        public LongtermContract(DateTime duration, string broker, float commission, bool status, DomesticHelper domesticHelper, Employer employer, DateTime startDate, DateTime endDate, string location, float hoursWork) : base(duration, broker, commission, status, domesticHelper, employer, startDate, endDate, location, hoursWork)
         {
-            RenewalTimes = renewalTimes;
         }
     }
 }

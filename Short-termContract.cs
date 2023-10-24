@@ -8,13 +8,8 @@ namespace ConsoleApp1
 {
     public class ShorttermContract : Contract
     {
-        private int HoursWork { get; set; }
-        private string Location { get; set; }
-
-        public ShorttermContract(DateTime duration, string broker, float commission, string status, DomesticHelper domesticHelper, Employer employer, int hoursWork, string location) : base(duration, broker, commission, status, domesticHelper, employer)
+        public ShorttermContract(DateTime duration, string broker, float commission, bool status, DomesticHelper domesticHelper, Employer employer, DateTime startDate, DateTime endDate, string location, float hoursWork) : base(duration, broker, commission, status, domesticHelper, employer, startDate, endDate, location, hoursWork)
         {
-            HoursWork = hoursWork;
-            Location = location;
         }
     }
 }

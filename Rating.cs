@@ -8,15 +8,15 @@ namespace ConsoleApp1
 {
     public class Rating
     {
-        private float Score { get; set; }
-        private string Comment { get; set; }
-        private DateTime Date { get; set; }
-
-        public Rating(float score, string comment, DateTime date)
+        //Attributes
+        float score;
+        string comment;
+        // Constructor
+        public Rating(float score, string comment)
         {
-            Score = score;
-            Comment = comment;
-            Date = date;
+            this.score = score;
+            this.comment = comment;
         }
+        //Methods
     }
 }

@@ -7,18 +7,23 @@ using System.Threading.Tasks;
 namespace ConsoleApp1
 {
     public class DomesticHelper : Person
-    {
-        private string[] Skills { get; set; }
-        private WorkHistory[] WorkHistory { get; set; }
-        private RatingHistory RatingHistory { get; set; }
-        private Contract Contract { get; set; }
+    {   
+        //private string[] Skills { get; set; }
+        //private WorkHistory[] WorkHistory { get; set; }
+        //private RatingHistory RatingHistory { get; set; }
+        //private Contract Contract { get; set; }
 
-        public DomesticHelper(string name, string phoneNumber, string address, DateTime dob, string[] skills, WorkHistory[] workHistory, RatingHistory ratingHistory, Contract contract) : base(name, phoneNumber, address, dob)
+        // Attributes
+        List<WorkHistory> workHistory;
+        List<Rating> ratingHistory;
+        List<string> skills;
+        List<Contract> contracts;
+        public DomesticHelper(string name, string phoneNumber, string address, DateTime dob) : base(name, phoneNumber, address, dob)
         {
-            Skills = skills;
-            WorkHistory = workHistory;
-            RatingHistory = ratingHistory;
-            Contract = contract;
         }
+
+
+
+
     }
 }

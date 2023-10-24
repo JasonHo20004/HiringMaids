@@ -8,19 +8,28 @@ namespace ConsoleApp1
 {
     public class WorkHistory
     {
-        private string Address { get; set; }
-        private float Completion { get; set; }
-        private float Salary { get; set; }
-        private DateTime StartDate { get; set; }
-        private DateTime EndDate { get; set; }
+        //private string Address { get; set; }
+        //private float Completion { get; set; }
+        //private float Salary { get; set; }
+        //private DateTime StartDate { get; set; }
+        //private DateTime EndDate { get; set; }
 
-        public WorkHistory(string address, float completion, float salary, DateTime startDate, DateTime endDate)
+        //Attributes
+        string workLocation;
+        float salary;
+        DateTime startDate;
+        DateTime endDate;
+        float completion;
+
+        // Constructors
+        public WorkHistory(string workLocation, float salary, DateTime startDate, DateTime endDate, float completion)
         {
-            Address = address;
-            Completion = completion;
-            Salary = salary;
-            StartDate = startDate;
-            EndDate = endDate;
+            this.workLocation = workLocation;
+            this.salary = salary;
+            this.startDate = startDate;
+            this.endDate = endDate;
+            this.completion = completion;
         }
+        // Methods
     }
 }

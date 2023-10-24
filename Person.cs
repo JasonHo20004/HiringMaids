@@ -8,18 +8,21 @@ namespace ConsoleApp1
 {
     public class Person
     {
-        private string Name { get; set; }
-        private string PhoneNumber { get; set; }
-        private string Address { get; set; }
-        private DateTime Dob { get; set; }
-
+        //Atrributes
+        protected string name;
+        protected string phoneNumber;
+        protected string address;
+        protected DateTime dob;
+        
+        //Constructor
         public Person(string name, string phoneNumber, string address, DateTime dob)
         {
-            Name = name;
-            PhoneNumber = phoneNumber;
-            Address = address;
-            Dob = dob;
+            this.name = name;
+            this.phoneNumber = phoneNumber;
+            this.address = address;
+            this.dob = dob;
         }
+        // Methods
     }
 
 }
