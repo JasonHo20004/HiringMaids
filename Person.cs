@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ConsoleApp1
 {
-    public class Person
+    internal class Person
     {
         //Atrributes
         protected string name;
@@ -22,6 +22,7 @@ namespace ConsoleApp1
             this.address = address;
             this.dob = dob;
         }
+        public Person() { }
         // Methods
     }
 

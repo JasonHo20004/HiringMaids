@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ConsoleApp1
 {
-    public class Rating
+    internal class Rating
     {
         //Attributes
         float score;

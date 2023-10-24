@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ConsoleApp1
 {
-    public class Employer : Person
+    internal class Employer : Person
     {
         //private string[] Requirements { get; set; }
         //private float SalaryOffer { get; set; }
@@ -22,10 +22,14 @@ namespace ConsoleApp1
        private List<DomesticHelper> hireHistory;
        private List<Rating> ratingHistory;
        private List<Contract> listContract;
+       private ByApp app;
         // Constructor
-        public Employer(string name, string phoneNumber, string address, DateTime dob) : base(name, phoneNumber, address, dob)
+        public Employer(string name, string phoneNumber, string address, DateTime dob, ByApp app) : base(name, phoneNumber, address, dob)
         {
+            this.app = app;
         }
+        public Employer() { }
         // Methods
+
     }
 }

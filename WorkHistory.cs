@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ConsoleApp1
 {
-    public class WorkHistory
+    internal class WorkHistory
     {
         //private string Address { get; set; }
         //private float Completion { get; set; }

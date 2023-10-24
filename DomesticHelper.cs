@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ConsoleApp1
 {
-    public class DomesticHelper : Person
+    internal class DomesticHelper : Person
     {   
         //private string[] Skills { get; set; }
         //private WorkHistory[] WorkHistory { get; set; }

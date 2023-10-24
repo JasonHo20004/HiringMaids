@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ConsoleApp1
 {
-    public class Contract
+    internal class Contract
     {
         //private DateTime Duration { get; set; }
         //private string Broker { get; set; }
