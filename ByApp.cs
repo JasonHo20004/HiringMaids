@@ -49,6 +49,14 @@ namespace ConsoleApp1
             {
                 Console.WriteLine("Input offer salary: ");
                 inputSalaryOffer();
+                var filteredBySalary = listHelper.Where(helper => helper.getSalaryOffer() <= employer.getSalaryOffer());
+                if (!filteredBySalary.Any())
+                {
+                    Console.WriteLine("No domestic helper suits your salary offer. Do you want to input again? (Y/N)");
+                    if (Console.ReadLine().ToUpper() != "Y") return;
+                    else continue;
+                }
+
                 Console.WriteLine("Input the number of requirements: ");
                 int n = int.Parse(Console.ReadLine());
                 List<string> list = new List<string>();
@@ -59,37 +67,41 @@ namespace ConsoleApp1
                     s = s.ToLower();
                     list.Add(s);
                 }
+                var filteredBySkills = filteredBySalary.Where(helper => list.All(req => helper.HasSkill(req)));
+                if (!filteredBySkills.Any())
+                {
+                    Console.WriteLine("No domestic helper has all the required skills. Do you want to input again? (Y/N)");
+                    if (Console.ReadLine().ToUpper() != "Y") return;
+                    else continue;
+                }
+
                 Console.WriteLine("Input desired location: ");
                 string location = Console.ReadLine().ToLower();
+                var filteredByLocation = filteredBySkills.Where(helper => helper.GetLocation().ToLower() == location);
+                if (!filteredByLocation.Any())
+                {
+                    Console.WriteLine("No domestic helper is in the desired location. Do you want to input again? (Y/N)");
+                    if (Console.ReadLine().ToUpper() != "Y") return;
+                    else continue;
+                }
+
                 Console.WriteLine("Input work mode (part-time/full-time): ");
                 string workMode = Console.ReadLine().ToLower();
-
-                var filteredStaff = listHelper.Where(helper => helper.getSalaryOffer() <= employer.getSalaryOffer()
-                                                    && list.All(req => helper.HasSkill(req))
-                                                    && helper.GetLocation().ToLower() == location
-                                                    && helper.GetWorkMode().ToLower() == workMode.ToLower());
-
-                if (filteredStaff.Count() > 0)
+                var filteredStaff = filteredByLocation.Where(helper => helper.GetWorkMode().ToLower() == workMode);
+                if (!filteredStaff.Any())
                 {
-                    Console.WriteLine();
-                    Console.WriteLine("======= Filtered Domestic Helpers ========");
-                    foreach (var helper in filteredStaff)
-                    {
-                        helper.printInfo();
-                    }
-                    continueFiltering = false;
+                    Console.WriteLine("No domestic helper suits your work mode. Do you want to input again? (Y/N)");
+                    if (Console.ReadLine().ToUpper() != "Y") return;
+                    else continue;
                 }
-                else
+
+                Console.WriteLine("======== Filtered Domestic Helpers ========");
+                foreach (var helper in filteredStaff)
                 {
-                    Console.WriteLine("No data suit your input. Do you want to input again? (Y/N)");
-                    string userInput = Console.ReadLine().ToUpper();
-                    if (userInput != "Y")
-                    {
-                        continueFiltering = false;
-                    }
+                    helper.printInfo();
                 }
+                continueFiltering = false;
             }
         }
-
     }
 }
