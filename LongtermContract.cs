@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ConsoleApp1
 {
-    public class LongtermContract : Contract
+    internal class LongtermContract : Contract
     {
         // LongTerm Contract can renew
 

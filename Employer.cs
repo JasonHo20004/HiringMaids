@@ -14,22 +14,42 @@ namespace ConsoleApp1
         //private DomesticHelper[] HireHistory { get; set; }
         //private RatingHistory RatingHistory { get; set; }
         //private Contract Contract { get; set; }
-        
+
         // Attributes
-       private List<string> requirements;
-       private float salaryOffer;
-       private float bonus;
-       private List<DomesticHelper> hireHistory;
-       private List<Rating> ratingHistory;
-       private List<Contract> listContract;
-       private ByApp app;
+        private List<string> requirements = new List<string>();
+        private float salaryOffer;
+        private float bonus;
+        private List<DomesticHelper> hireHistory;
+        private List<Rating> ratingHistory;
+        private List<Contract> listContract;
         // Constructor
-        public Employer(string name, string phoneNumber, string address, DateTime dob, ByApp app) : base(name, phoneNumber, address, dob)
+        public Employer(string name, string phoneNumber, string address, DateTime dob) : base(name, phoneNumber, address, dob)
         {
-            this.app = app;
         }
         public Employer() { }
         // Methods
+        public void setSalaryOffer(float x)
+        {
+            this.salaryOffer = x;
+        }
+        public float getSalaryOffer()
+        {
+            return this.salaryOffer;
+        }
+        public void addRequirement(List<string> T)
+        {
+            this.requirements.Clear();
+            this.requirements.AddRange(T);
+        }
 
+        public List<string> getListRequirements()
+        {
+            return this.requirements;
+        }
+        public override string toString()
+        {
+            string info = base.toString();
+            return info;
+        }
     }
 }

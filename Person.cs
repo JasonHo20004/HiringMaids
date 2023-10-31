@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Linq;
 
 namespace ConsoleApp1
 {
@@ -24,6 +26,18 @@ namespace ConsoleApp1
         }
         public Person() { }
         // Methods
+        public virtual string toString()
+        {
+            string info = $"Name: {name}\t";
+            info += $"Phone Number: {phoneNumber}\t";
+            info += $"Address: {address} \t";
+            info += $"Date of Birth: {dob.ToShortDateString()} \t";         
+            return info;
+        }
+        public virtual void printInfo()
+        {
+            Console.WriteLine(toString());
+        }
     }
 
 }
