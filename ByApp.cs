@@ -89,7 +89,7 @@ namespace ConsoleApp1
             if (d != null)
             {
                 Console.WriteLine("Are you sure you want to hire this person? ( Y/N ?)");
-                d.printInfoOnRow();
+                d.printInforInColumn();
                 string s = Console.ReadLine();
                 s = s.ToUpper();
                 if (s == "y")

@@ -46,6 +46,11 @@ namespace ConsoleApp1
             return id + info;
         }
 
+        public override void printInforInColumn()
+        {
+            Console.WriteLine("Maid's ID: "+this.maidID);
+            base.printInforInColumn();
+        }
         public bool HasSkill(string skill)
         {
             return skills.Contains(skill);
