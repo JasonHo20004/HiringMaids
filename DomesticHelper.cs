@@ -20,17 +20,17 @@ namespace ConsoleApp1
         List<Contract> contracts;
         float salaryOffer;
         string id;
-        string workMode; // Thêm thuộc tính hình thức làm việc
         string maidID;
+        string workMode; // Thêm thuộc tính hình thức làm việc
+
         // Constructor
-        public DomesticHelper(string id, string name, string phoneNumber, string address, DateTime dob, float salaryOffer, List<string> skills, string maidID) : base(id, name, phoneNumber, address, dob)
-        public DomesticHelper(string name, string phoneNumber, string address, DateTime dob, float salaryOffer, List<string> skills, string id, string workMode) : base(name, phoneNumber, address, dob)
+        public DomesticHelper(string id,string name, string phoneNumber, string address, DateTime dob, float salaryOffer, List<string> skills, string workMode,string maidID) : base(id,name, phoneNumber, address, dob)
         {
             this.salaryOffer = salaryOffer;
             this.skills = skills;
             this.id = id;
             this.workMode = workMode; // Thiết lập giá trị cho thuộc tính hình thức làm việc
-            this.maidID = maidID;
+            this.maidID=maidID;
         }
 
         // Methods
@@ -38,25 +38,21 @@ namespace ConsoleApp1
         {
             return salaryOffer;
         }
+
         public string getMaidID()
         {
             return this.maidID;
         }
+
         public override string toString()
         {
             string id = "Maid's ID: " + this.maidID + "\t";
             string info = base.toString();
             info += $"Salary offer: {salaryOffer} \t";
-            info += $"Skills: " + string.Join(", ", skills) + "\n";
-            info += $"Work mode: {workMode}"; //Hình thức làm việc.
+            info += $"Skills: " + string.Join(", ", skills) + "\t";
+            info += $"Work mode: {workMode}"+"\n"; //Hình thức làm việc.
             return id + info;
         }
-
-        public override void printInfo()
-        {
-            base.printInfo();
-        }
-
         public bool HasSkill(string skill)
         {
             return skills.Contains(skill);
