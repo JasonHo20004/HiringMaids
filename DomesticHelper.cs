@@ -21,39 +21,51 @@ namespace ConsoleApp1
         float salaryOffer;
         string id;
         string maidID;
+        string workMode; // Thêm thuộc tính hình thức làm việc
+
         // Constructor
-        public DomesticHelper(string id, string name, string phoneNumber, string address, DateTime dob, float salaryOffer, List<string> skills, string maidID) : base(id, name, phoneNumber, address, dob)
+        public DomesticHelper(string id, string name, string phoneNumber, string address, DateTime dob, float salaryOffer, List<string> skills, string workMode, string maidID) : base(id, name, phoneNumber, address, dob)
         {
             this.salaryOffer = salaryOffer;
             this.skills = skills;
+            this.id = id;
+            this.workMode = workMode; // Thiết lập giá trị cho thuộc tính hình thức làm việc
             this.maidID = maidID;
         }
+
         // Methods
         public float getSalaryOffer()
         {
             return salaryOffer;
         }
+
         public string getMaidID()
         {
             return this.maidID;
         }
+
         public override string toString()
         {
             string id = "Maid's ID: " + this.maidID + "\t";
             string info = base.toString();
             info += $"Salary offer: {salaryOffer} \t";
-            info += $"Skills: " + string.Join(", ", skills) + "\n";
+            info += $"Skills: " + string.Join(", ", skills) + "\t";
+            info += $"Work mode: {workMode}" + "\n"; //Hình thức làm việc.
             return id + info;
-        }
-
-        public override void printInforInColumn()
-        {
-            Console.WriteLine("Maid's ID: "+this.maidID);
-            base.printInforInColumn();
         }
         public bool HasSkill(string skill)
         {
             return skills.Contains(skill);
         }
+        public string GetLocation()
+        {
+            return this.address;
+        }
+
+        public string GetWorkMode()
+        {
+            return this.workMode;
+        }
     }
+
 }
