@@ -44,34 +44,64 @@ namespace ConsoleApp1
 
         public void filterDomesticHelper()
         {
-            // Bây giờ bổ sung thêm để có thể lọc theo các tiêu chí : mức lương, yêu cầu công việc, địa điểm, hình thức công việc part time hay full time
-            // Bổ sung thêm vào class DomesticHelper thuộc tính hình thức làm việc để có thể quản lý hình thức làm việc của helper
-            Console.Write("Input offer salary: ");
-            inputSalaryOffer();
-            Console.Write("Input the number of requirements: ");
-            int n = int.Parse(Console.ReadLine());
-            // Nhập và add vào wish list yêu cầu của người thuê
-            List<string> list = new List<string>();
-            for (int i = 0; i < n; i++)
+            bool continueFiltering = true;
+            while (continueFiltering)
             {
-                Console.Write("Requirement " + (i + 1) + ": ");
-                string s = Console.ReadLine();
-                s = s.ToLower();
-                list.Add(s);
-            }
-            // Lọc ra những staff thõa requirements 
-            var filteredStaff = listHelper.Where(helper => helper.getSalaryOffer() <= employer.getSalaryOffer()
-                                                && list.All(req => helper.HasSkill(req)));
+                Console.WriteLine("Input offer salary: ");
+                inputSalaryOffer();
+                var filteredBySalary = listHelper.Where(helper => helper.getSalaryOffer() <= employer.getSalaryOffer());
+                if (!filteredBySalary.Any())
+                {
+                    Console.WriteLine("No domestic helper suits your salary offer. Do you want to input again? (Y/N)");
+                    if (Console.ReadLine().ToUpper() != "Y") return;
+                    else continue;
+                }
 
-            if (filteredStaff.Count() > 0)
-            {
-                Console.WriteLine("Filtered Domestic Helpers:");
+                Console.WriteLine("Input the number of requirements: ");
+                int n = int.Parse(Console.ReadLine());
+                List<string> list = new List<string>();
+                for (int i = 0; i < n; i++)
+                {
+                    Console.WriteLine("Requirement " + (i + 1));
+                    string s = Console.ReadLine();
+                    s = s.ToLower();
+                    list.Add(s);
+                }
+                var filteredBySkills = filteredBySalary.Where(helper => list.All(req => helper.HasSkill(req)));
+                if (!filteredBySkills.Any())
+                {
+                    Console.WriteLine("No domestic helper has all the required skills. Do you want to input again? (Y/N)");
+                    if (Console.ReadLine().ToUpper() != "Y") return;
+                    else continue;
+                }
+
+                Console.WriteLine("Input desired location: ");
+                string location = Console.ReadLine().ToLower();
+                var filteredByLocation = filteredBySkills.Where(helper => helper.GetLocation().ToLower() == location);
+                if (!filteredByLocation.Any())
+                {
+                    Console.WriteLine("No domestic helper is in the desired location. Do you want to input again? (Y/N)");
+                    if (Console.ReadLine().ToUpper() != "Y") return;
+                    else continue;
+                }
+
+                Console.WriteLine("Input work mode (part-time/full-time): ");
+                string workMode = Console.ReadLine().ToLower();
+                var filteredStaff = filteredByLocation.Where(helper => helper.GetWorkMode().ToLower() == workMode);
+                if (!filteredStaff.Any())
+                {
+                    Console.WriteLine("No domestic helper suits your work mode. Do you want to input again? (Y/N)");
+                    if (Console.ReadLine().ToUpper() != "Y") return;
+                    else continue;
+                }
+
+                Console.WriteLine("======== Filtered Domestic Helpers ========");
                 foreach (var helper in filteredStaff)
                 {
                     helper.printInfoOnRow();
                 }
+                continueFiltering = false;
             }
-            else { Console.WriteLine("Empty data !!!"); }
         }
         DomesticHelper searchIDHelper(string id)
         {

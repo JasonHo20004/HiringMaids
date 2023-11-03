@@ -20,14 +20,19 @@ namespace ConsoleApp1
         List<Contract> contracts;
         float salaryOffer;
         string id;
+        string workMode; // Thêm thuộc tính hình thức làm việc
         string maidID;
         // Constructor
         public DomesticHelper(string id, string name, string phoneNumber, string address, DateTime dob, float salaryOffer, List<string> skills, string maidID) : base(id, name, phoneNumber, address, dob)
+        public DomesticHelper(string name, string phoneNumber, string address, DateTime dob, float salaryOffer, List<string> skills, string id, string workMode) : base(name, phoneNumber, address, dob)
         {
             this.salaryOffer = salaryOffer;
             this.skills = skills;
+            this.id = id;
+            this.workMode = workMode; // Thiết lập giá trị cho thuộc tính hình thức làm việc
             this.maidID = maidID;
         }
+
         // Methods
         public float getSalaryOffer()
         {
@@ -43,12 +48,28 @@ namespace ConsoleApp1
             string info = base.toString();
             info += $"Salary offer: {salaryOffer} \t";
             info += $"Skills: " + string.Join(", ", skills) + "\n";
+            info += $"Work mode: {workMode}"; //Hình thức làm việc.
             return id + info;
+        }
+
+        public override void printInfo()
+        {
+            base.printInfo();
         }
 
         public bool HasSkill(string skill)
         {
             return skills.Contains(skill);
         }
+        public string GetLocation()
+        {
+            return this.address;
+        }
+
+        public string GetWorkMode()
+        {
+            return this.workMode;
+        }
     }
+
 }
