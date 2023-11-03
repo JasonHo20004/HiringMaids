@@ -16,33 +16,42 @@ namespace ConsoleApp1
         //private Employer Employer { get; set; }
 
         // Atrributes
-        protected DateTime duration;
-        protected string broker;
-        protected float commission;
+        protected int duration;
+        //protected string broker;
+        //protected float commission;
         protected bool status;
         protected DomesticHelper domesticHelper;
         protected Employer employer;
         protected DateTime startDate;
         protected DateTime endDate;
         protected string location;
-        protected float hoursWork;
+        //protected float hoursWork;
+        protected string workDescription;
+
+
 
         // Constructors
-        public Contract(DateTime duration, string broker, float commission, bool status, DomesticHelper domesticHelper, Employer employer, DateTime startDate, DateTime endDate, string location, float hoursWork)
+        public Contract(DateTime startDate, DateTime endDate, int duration, Employer employer, DomesticHelper domesticHelper, string workDescription, string location)
         {
             this.duration = duration;
-            this.broker = broker;
-            this.commission = commission;
-            this.status = status;
+            this.status = true;
             this.domesticHelper = domesticHelper;
             this.employer = employer;
             this.startDate = startDate;
             this.endDate = endDate;
             this.location = location;
-            this.hoursWork = hoursWork;
-        }
+            this.workDescription = workDescription;
 
+        }
         // Methods
+        public virtual void printContract()
+        {
+            Console.WriteLine("LABOR CONTRACT FOR HIRE MAID ");
+            Console.WriteLine("Party A - Employer ");
+            this.employer.printInforInColumn();
+            Console.WriteLine("Party B - Domestic Helper ");
+            this.domesticHelper.printInforInColumn();
+        }
 
 
 
