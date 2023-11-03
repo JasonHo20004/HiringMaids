@@ -18,16 +18,17 @@ namespace ConsoleApp1
         // Attributes
         private List<string> requirements = new List<string>();
         private float salaryOffer;
-        private float bonus;
+        private string bonusRegime;
         private List<DomesticHelper> hireHistory;
         private List<Rating> ratingHistory;
         private List<Contract> listContract;
         // Constructor
-        public Employer(string name, string phoneNumber, string address, DateTime dob) : base(name, phoneNumber, address, dob)
+        public Employer(string id, string name, string phoneNumber, string address, DateTime dob) : base(id, name, phoneNumber, address, dob)
         {
         }
         public Employer() { }
         // Methods
+
         public void setSalaryOffer(float x)
         {
             this.salaryOffer = x;
