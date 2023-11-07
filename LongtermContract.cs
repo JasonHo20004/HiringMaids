@@ -10,40 +10,21 @@ namespace ConsoleApp1
     {
         public LongtermContract(DateTime startDate, DateTime endDate, int duration, Employer employer, DomesticHelper domesticHelper, string workDescription, string location) : base(startDate, endDate, duration, employer, domesticHelper, workDescription, location)
         {
-
         }
 
-        public LongtermContract(DateTime startDate, DateTime endDate, Employer employer, DomesticHelper domesticHelper, string workDescription, string location) : base(startDate, endDate,  employer, domesticHelper, workDescription, location)
-        {
-            this.duration = 6;
-        }
-        public LongtermContract(Employer employer,DomesticHelper domesticHelper):base(employer,domesticHelper)
-        {
-            
-            this.duration = 6;
-            setupContract();
-        }
         public override void printContract()
         {
             base.printContract();
             Console.WriteLine("Article 1: Term and contract work");
-            Console.WriteLine(". Type of labor contract: Labor contract with a term of " + this.duration + " months");
-            Console.WriteLine(". Since " + this.startDate.ToShortDateString() + " to " + this.endDate.ToShortDateString());
-            Console.WriteLine(". Location: " + this.location);
-            Console.WriteLine(". Job description: " + this.workDescription);
-            Console.WriteLine(". Type: Full time");
-            Console.WriteLine(". Working hours: 10");
+            Console.WriteLine("1. Type of labor contract: Labor contract with a term of " + this.duration + " months");
+            Console.WriteLine("2. Since " + this.startDate.ToShortDateString() + " to " + this.endDate.ToShortDateString());
+            Console.WriteLine("3. Location: " + this.location);
+            Console.WriteLine("4. Job description: " + this.workDescription);
+            Console.WriteLine("5. Type: Full time");
+            Console.WriteLine("6. Working hours: 10");
             Console.WriteLine("Article 2: Rights of employee");
-            Console.WriteLine(". Salary: " + this.domesticHelper.getSalaryOffer());
-            Console.WriteLine(". Bonus regime: Hihihi");
-            Console.WriteLine("------------------------------------------- END -------------------------------------------");
-        }
-        public override void setupContract()
-        {
-            base.setupContract();
-            DateTime d = DateTime.Now;
-            this.startDate = d;
-            this.endDate = d.AddMonths(this.duration);
+            Console.WriteLine("1. Salary: " + this.domesticHelper.getSalaryOffer());
+            Console.WriteLine("2. Bonus regime: Hihihi");
         }
     }
 }

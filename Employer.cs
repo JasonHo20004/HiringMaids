@@ -21,10 +21,7 @@ namespace ConsoleApp1
         private string bonusRegime;
         private List<DomesticHelper> hireHistory;
         private List<Rating> ratingHistory;
-        private List<Contract> listContract=new List<Contract>();
-
-        internal List<Contract> ListContract { get => listContract; set => listContract = value; }
-
+        private List<Contract> listContract;
         // Constructor
         public Employer(string id, string name, string phoneNumber, string address, DateTime dob) : base(id, name, phoneNumber, address, dob)
         {
