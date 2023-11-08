@@ -13,7 +13,14 @@ namespace ConsoleApp1
         public ShorttermContract(DateTime startDate, DateTime endDate, int duration, Employer employer, DomesticHelper domesticHelper, string workDescription, string location, float hourPerDay) : base(startDate, endDate, duration, employer, domesticHelper, workDescription, location)
         {
         }
+        public ShorttermContract(DateTime startDate, DateTime endDate, Employer employer, DomesticHelper domesticHelper, string workDescription, string location, float hourPerDay) : base(startDate, endDate, employer, domesticHelper, workDescription, location)
+        {
 
+        }
+        public ShorttermContract(Employer employer, DomesticHelper domesticHelper) : base(employer, domesticHelper)
+        {
+            setupContract();
+        }
         public override void printContract()
         {
             base.printContract();
@@ -27,6 +34,18 @@ namespace ConsoleApp1
             Console.WriteLine("Article 2: Rights of employee");
             Console.WriteLine("1. Salary: " + this.domesticHelper.getSalaryOffer());
             Console.WriteLine("2. Bonus regime: Hihihi");
+            Console.WriteLine("------------------------------------------- END -------------------------------------------");
+        }
+        public override void setupContract()
+        {
+            base.setupContract();
+            Console.WriteLine("Input hours per day: ");
+            this.hourPerDay = float.Parse(Console.ReadLine());
+            Console.WriteLine("Input duration (days): ");
+            this.duration = int.Parse(Console.ReadLine());
+            DateTime d = DateTime.Now;
+            this.startDate = d;
+            this.endDate = d.AddDays(this.duration);
         }
     }
 }

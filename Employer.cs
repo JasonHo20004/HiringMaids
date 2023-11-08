@@ -8,23 +8,17 @@ namespace ConsoleApp1
 {
     internal class Employer : Person
     {
-        //private string[] Requirements { get; set; }
-        //private float SalaryOffer { get; set; }
-        //private float Bonus { get; set; }
-        //private DomesticHelper[] HireHistory { get; set; }
-        //private RatingHistory RatingHistory { get; set; }
-        //private Contract Contract { get; set; }
-
         // Attributes
         private List<string> requirements = new List<string>();
         private float salaryOffer;
         private string bonusRegime;
-        private List<DomesticHelper> hireHistory;
-        private List<Rating> ratingHistory;
-        private List<Contract> listContract;
+        public List<DomesticHelper> hireHistory;
+        public List<Rating> ratingHistory;
+        public List<Contract> ListContract;
         // Constructor
         public Employer(string id, string name, string phoneNumber, string address, DateTime dob) : base(id, name, phoneNumber, address, dob)
         {
+            ListContract = new List<Contract>();
         }
         public Employer() { }
         // Methods

@@ -8,16 +8,11 @@ namespace ConsoleApp1
 {
     internal class DomesticHelper : Person
     {
-        //private string[] Skills { get; set; }
-        //private WorkHistory[] WorkHistory { get; set; }
-        //private RatingHistory RatingHistory { get; set; }
-        //private Contract Contract { get; set; }
-
         // Attributes
         List<WorkHistory> workHistory;
         List<Rating> ratingHistory;
         List<string> skills;
-        List<Contract> contracts;
+        public List<Contract> ListContracts;
         float salaryOffer;
         string id;
         string maidID;
@@ -31,6 +26,7 @@ namespace ConsoleApp1
             this.id = id;
             this.workMode = workMode; // Thiết lập giá trị cho thuộc tính hình thức làm việc
             this.maidID=maidID;
+            this.ListContracts = new List<Contract>();  
         }
 
         // Methods
