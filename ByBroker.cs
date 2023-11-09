@@ -8,6 +8,7 @@ namespace ConsoleApp1
 {
     internal class ByBroker
     {
+        // In thông tin của từng Broker thì dùng hàm printInforOnRow nha, in vậy để Employee dễ xem dễ chọn
         private List<DomesticHelper> suggestedHelpers;
         private Employer employer;
 
