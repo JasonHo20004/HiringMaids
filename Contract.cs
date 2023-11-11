@@ -21,8 +21,6 @@ namespace ConsoleApp1
         //protected float hoursWork;
         protected string workDescription;
 
-
-
         // Constructors
         public Contract(DateTime startDate, DateTime endDate, int duration, Employer employer, DomesticHelper domesticHelper, string workDescription, string location)
         {
@@ -63,7 +61,6 @@ namespace ConsoleApp1
             Console.WriteLine("Party B - Domestic Helper ");
             this.domesticHelper.printInforInColumn();
         }
-
         public virtual void setupContract()
         {
             Console.Write("Describe detail tasks: ");
@@ -72,5 +69,4 @@ namespace ConsoleApp1
             this.location = Console.ReadLine();
         }
     }
-
 }

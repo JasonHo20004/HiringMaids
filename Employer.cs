@@ -15,12 +15,13 @@ namespace ConsoleApp1
         public List<DomesticHelper> hireHistory;
         public List<Rating> ratingHistory;
         public List<Contract> ListContract;
+        public Broker brokers;
         // Constructor
         public Employer(string id, string name, string phoneNumber, string address, DateTime dob) : base(id, name, phoneNumber, address, dob)
         {
             ListContract = new List<Contract>();
         }
-        public Employer() { }
+
         // Methods
 
         public void setSalaryOffer(float x)

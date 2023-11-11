@@ -45,12 +45,15 @@ namespace ConsoleApp1
 
         public virtual void printInforInColumn()
         {
-            Console.WriteLine("Name: " + this.name);
-            Console.WriteLine("ID: " + this.id);
-            Console.WriteLine("Date of birth: " + this.dob.ToShortDateString());
-            Console.WriteLine("Phone number: " + this.phoneNumber);
-            Console.WriteLine("Address: " + this.address);
+            Console.WriteLine("----------------------------");
+            Console.WriteLine($"{"Name:",-15} | {this.name}");
+            Console.WriteLine($"{"ID:",-15} | {this.id}");
+            Console.WriteLine($"{"Date of birth:",-15} | {this.dob.ToShortDateString()}");
+            Console.WriteLine($"{"Phone number:",-15} | {this.phoneNumber}");
+            Console.WriteLine($"{"Address:",-15} | {this.address}");
+            Console.WriteLine("----------------------------");
         }
+
     }
 
 }

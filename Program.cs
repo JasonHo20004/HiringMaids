@@ -11,10 +11,8 @@
             a.signContract();
             a.setupContract();
             */
-
             ByBroker b = new ByBroker(employer);
-            b.ShowSuggestedHelpers();
-            b.SelectHelperAndSignContract();
+            b.SelectBrokerAndHelper();
             
         }
     }
