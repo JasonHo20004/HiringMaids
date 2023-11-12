@@ -22,11 +22,13 @@ namespace ConsoleApp1
         public void createData()
         {
             listHelper = new List<DomesticHelper>();
-            DomesticHelper staff1 = new DomesticHelper("052204007418", "Dat", "0123", "Quan 1", new DateTime(2023, 1, 1), 100, new List<string> { "cooking", "cleaning" }, 'F', "DH01");
+
+            DomesticHelper staff1 = new DomesticHelper("052204007418", "Dat", "0123", "Quan 1", new DateTime(2023, 1, 1), 100, new List<string> { "cooking", "cleaning" }, "F", "DH01");
+           
             listHelper.Add(staff1);
-            DomesticHelper staff2 = new DomesticHelper("052204007418", "Vu", "0123", "Quan 2", new DateTime(2023, 06, 24), 100, new List<string> { "cooking" }, 'P', "DH02");
+            DomesticHelper staff2 = new DomesticHelper("052204007418", "Vu", "0123", "Quan 2", new DateTime(2023, 06, 24), 100, new List<string> { "cooking" }, "P", "DH02");
             listHelper.Add(staff2);
-            DomesticHelper staff3 = new DomesticHelper("052204007418", "Loc", "0123", "Thu Duc", new DateTime(2023, 1, 24), 100, new List<string> { "cooking", "taking care of child" }, 'P', "DH03");
+            DomesticHelper staff3 = new DomesticHelper("052204007418", "Loc", "0123", "Thu Duc", new DateTime(2023, 1, 24), 100, new List<string> { "cooking", "taking care of child" }, "P", "DH03");
             listHelper.Add(staff3);
         }
         public void printListDomesticHelper()
@@ -44,7 +46,7 @@ namespace ConsoleApp1
 
         public void filterDomesticHelper()
         {
-            
+
             bool continueFiltering = true;
             while (continueFiltering)
             {
@@ -125,13 +127,13 @@ namespace ConsoleApp1
                 s = s.ToUpper();
                 if (s == "Y")
                 {
-                    if(d.GetWorkMode()=='F')
+                    if (d.GetWorkMode() == "F")
                     {
-                        LongtermContract l = new LongtermContract(this.employer,d);
+                        LongtermContract l = new LongtermContract(this.employer, d);
                         this.employer.ListContract.Add(l);
                         d.ListContracts.Add(l);
                         l.printContract();
-                    }    
+                    }
                     else
                     {
                         ShorttermContract l = new ShorttermContract(this.employer, d);
@@ -149,8 +151,5 @@ namespace ConsoleApp1
             Console.Write("Input location: ");
             string l = Console.ReadLine();
         }
-
-
-
     }
 }

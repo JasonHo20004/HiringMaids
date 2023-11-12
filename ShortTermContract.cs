@@ -17,7 +17,7 @@ namespace ConsoleApp1
         {
 
         }
-        public ShorttermContract(Employer employer, DomesticHelper domesticHelper):base(employer, domesticHelper)
+        public ShorttermContract(Employer employer, DomesticHelper domesticHelper) : base(employer, domesticHelper)
         {
             setupContract();
         }

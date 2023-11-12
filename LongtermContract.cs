@@ -13,13 +13,13 @@ namespace ConsoleApp1
 
         }
 
-        public LongtermContract(DateTime startDate, DateTime endDate, Employer employer, DomesticHelper domesticHelper, string workDescription, string location) : base(startDate, endDate,  employer, domesticHelper, workDescription, location)
+        public LongtermContract(DateTime startDate, DateTime endDate, Employer employer, DomesticHelper domesticHelper, string workDescription, string location) : base(startDate, endDate, employer, domesticHelper, workDescription, location)
         {
             this.duration = 6;
         }
-        public LongtermContract(Employer employer,DomesticHelper domesticHelper):base(employer,domesticHelper)
+        public LongtermContract(Employer employer, DomesticHelper domesticHelper) : base(employer, domesticHelper)
         {
-            
+
             this.duration = 6;
             setupContract();
         }
