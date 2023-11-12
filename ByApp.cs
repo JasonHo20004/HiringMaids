@@ -22,7 +22,6 @@ namespace ConsoleApp1
         public void createData()
         {
             listHelper = new List<DomesticHelper>();
-
             DomesticHelper staff1 = new DomesticHelper("052204007418", "Dat", "0123", "Quan 1", new DateTime(2023, 1, 1), 100, new List<string> { "cooking", "cleaning" }, 'F', "DH01");
             listHelper.Add(staff1);
             DomesticHelper staff2 = new DomesticHelper("052204007418", "Vu", "0123", "Quan 2", new DateTime(2023, 06, 24), 100, new List<string> { "cooking" }, 'P', "DH02");
