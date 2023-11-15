@@ -43,7 +43,7 @@ namespace ConsoleApp1
             Console.WriteLine(toString());
         }
 
-        public virtual void printInforInColumn()
+        public void printInforInColumn()
         {
             Console.WriteLine("----------------------------");
             Console.WriteLine($"{"Name:",-15} | {this.name}");

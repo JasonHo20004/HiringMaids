@@ -54,7 +54,7 @@ namespace ConsoleApp1
             return skills.Contains(skill);
         }
         public string GetLocation()
-        {
+        { 
             return this.address;
         }
 
