@@ -73,7 +73,7 @@ namespace ConsoleApp1
                     Console.WriteLine("You selected the following helper:");
                     selectedHelper.printInforInColumn();
 
-                    Console.WriteLine("Do you want to sign a contract with this helper? (Y/N)");
+                    Console.WriteLine("Do you want to sign a contract with this helper? (Y/N)");    
                     string response = Console.ReadLine();
 
                     if (response.ToUpper() == "Y")
