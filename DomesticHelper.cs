@@ -19,7 +19,7 @@ namespace ConsoleApp1
         string workMode; // Thêm thuộc tính hình thức làm việc
 
         // Constructor
-        public DomesticHelper(string id,string name, string phoneNumber, string address, DateTime dob, float salaryOffer, List<string> skills, string workMode,string maidID) : base(id,name, phoneNumber, address, dob)
+        public DomesticHelper(string id,string name, string phoneNumber, string address, string dob, float salaryOffer, List<string> skills, string workMode,string maidID) : base(id,name, phoneNumber, address, dob)
         {
             this.salaryOffer = salaryOffer;
             this.skills = skills;

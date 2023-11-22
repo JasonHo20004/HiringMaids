@@ -10,27 +10,28 @@ namespace ConsoleApp1
     internal class ByApp
     {
         // Attributes
-        List<DomesticHelper> listHelper;
+        List<DomesticHelper> listHelper = ListHelper.ImportData();
         Employer employer;
         // Constructor
         public ByApp(Employer employer)
         {
-            createData();
+            //createData();
             this.employer = employer;
         }
-        // Methods
-        public void createData()
-        {
-            listHelper = new List<DomesticHelper>();
+        // Methods 
 
-            DomesticHelper staff1 = new DomesticHelper("052204007418", "Dat", "0123", "Quan 1", new DateTime(2023, 1, 1), 100, new List<string> { "cooking", "cleaning" }, "F", "DH01");
+        //public void createData()
+        //{
+        //    listHelper = new List<DomesticHelper>();
+
+        //    DomesticHelper staff1 = new DomesticHelper("052204007418", "Dat", "0123", "Quan 1", "24/06/2004", 100, new List<string> { "cooking", "cleaning" }, "F", "DH01");
            
-            listHelper.Add(staff1);
-            DomesticHelper staff2 = new DomesticHelper("052204007418", "Vu", "0123", "Quan 2", new DateTime(2023, 06, 24), 100, new List<string> { "cooking" }, "P", "DH02");
-            listHelper.Add(staff2);
-            DomesticHelper staff3 = new DomesticHelper("052204007418", "Loc", "0123", "Thu Duc", new DateTime(2023, 1, 24), 100, new List<string> { "cooking", "taking care of child" }, "P", "DH03");
-            listHelper.Add(staff3);
-        }
+        //    listHelper.Add(staff1);
+        //    DomesticHelper staff2 = new DomesticHelper("052204007418", "Vu", "0123", "Quan 2", "24/06/2004", 100, new List<string> { "cooking" }, "P", "DH02");
+        //    listHelper.Add(staff2);
+        //    DomesticHelper staff3 = new DomesticHelper("052204007418", "Loc", "0123", "Thu Duc", "24/06/2004", 100, new List<string> { "cooking", "taking care of child" }, "P", "DH03");
+        //    listHelper.Add(staff3);
+        //}
         public void printListDomesticHelper()
         {
             foreach (DomesticHelper d in listHelper)

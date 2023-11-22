@@ -12,12 +12,17 @@ namespace ConsoleApp1
         List<Broker> brokers;
         double commission;
         string brokerID; // Broker ID để employee chọn
-        public Broker(string id, string name, string phoneNumber, string address, DateTime dob, List<DomesticHelper> listHelper, double commission, string brokerID) : base(id, name, phoneNumber, address, dob)
+
+        public Broker(string id, string name, string phoneNumber, string address, string dob, List<DomesticHelper> listHelper, double commission, string brokerID) : base(id, name, phoneNumber, address, dob)
         {
             this.listHelper = listHelper;
             this.commission = commission;
             this.brokerID = brokerID;
-            this.brokers = new List<Broker>();
+            //this.brokers = new List<Broker>();
+        }
+        public List<DomesticHelper> GetListHelpers()
+        {
+            return this.listHelper;
         }
         public void AddBroker(Broker broker)
         {

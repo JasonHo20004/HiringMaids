@@ -17,7 +17,7 @@ namespace ConsoleApp1
         public List<Contract> ListContract;
         public Broker brokers;
         // Constructor
-        public Employer(string id, string name, string phoneNumber, string address, DateTime dob) : base(id, name, phoneNumber, address, dob)
+        public Employer(string id, string name, string phoneNumber, string address, string dob) : base(id, name, phoneNumber, address, dob)
         {
             ListContract = new List<Contract>();
         }

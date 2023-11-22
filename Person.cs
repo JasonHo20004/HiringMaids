@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Net;
 using System.Text;
@@ -18,13 +19,14 @@ namespace ConsoleApp1
         protected DateTime dob;
 
         //Constructor
-        public Person(string id, string name, string phoneNumber, string address, DateTime dob)
+        public Person(string id, string name, string phoneNumber, string address, string dob)
         {
+            string format = "dd/MM/yyyy";
             this.id = id;
             this.name = name;
             this.phoneNumber = phoneNumber;
             this.address = address;
-            this.dob = dob;
+            this.dob = DateTime.ParseExact(dob, format, CultureInfo.InvariantCulture);
         }
         public Person() { }
         // Methods
