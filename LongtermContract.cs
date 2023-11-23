@@ -38,7 +38,7 @@ namespace ConsoleApp1
             Console.WriteLine(". Bonus regime: Hihihi");
             Console.WriteLine("------------------------------------------- END -------------------------------------------");
         }
-        public override void SetupContract()
+        public void SetupContract()
         {
             base.setupContract();
             DateTime d = DateTime.Now;
@@ -46,4 +46,5 @@ namespace ConsoleApp1
             this.endDate = d.AddMonths(this.duration);
         }
     }
+
 }
