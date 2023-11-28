@@ -34,12 +34,16 @@ namespace ConsoleApp1
 
         public void ShowHelpers()
         {
+            Console.WriteLine("--------------------------------------------------------------------------------------------------------------------------------------------------------------------");
+            Console.WriteLine("{0,-10} | {1,-15} | {2,-15} | {3,-15} | {4,-15} | {5, -15} | {6, -15} | {7, -15} | {8, -15}", "Helper ID", "Name", "ID", "Date of Birth", "Phone Number", "Address", "WorkMode", "SalaryOffer", "Skills");
+            Console.WriteLine("--------------------------------------------------------------------------------------------------------------------------------------------------------------------");
             foreach (DomesticHelper helper in listHelper)
             {
-                helper.printInfoOnRow();
+                Console.WriteLine("{0,-10} | {1,-15} | {2,-15} | {3,-15} | {4,-15} | {5, -15} | {6, -15} | {7, -15} | {8, -15}",
+                    helper.getMaidID(), helper.getName(), helper.getID(), helper.getDob().ToShortDateString(), helper.getPhoneNumber(), helper.getAddress(), helper.GetWorkMode(), helper.getSalaryOffer(), helper.GetSkills());
             }
+            Console.WriteLine("--------------------------------------------------------------------------------------------------------------------------------------------------------------------");
         }
-
         public DomesticHelper SelectHelper(string helperId)
         {
             return listHelper.FirstOrDefault(helper => helper.getMaidID() == helperId);

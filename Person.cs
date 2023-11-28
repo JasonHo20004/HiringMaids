@@ -38,10 +38,12 @@ namespace ConsoleApp1
 
             return info;
         }
+        
         public virtual void printInfoOnRow()
         {
             Console.WriteLine(toString());
         }
+        
 
         public void printInforInColumn()
         {

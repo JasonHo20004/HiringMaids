@@ -44,7 +44,7 @@ namespace ConsoleApp1
             this.endDate = endDate;
             this.location = location;
             this.workDescription = workDescription;
-
+            
         }
 
         public Contract(Employer employer, DomesticHelper domesticHelper)

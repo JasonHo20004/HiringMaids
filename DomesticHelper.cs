@@ -40,6 +40,44 @@ namespace ConsoleApp1
             return this.maidID;
         }
 
+        public string getName()
+        {
+            return this.name;
+        }
+        public string getPhoneNumber()
+        {
+            return this.phoneNumber;
+        }
+        public string getAddress()
+        {
+            return this.address;
+        }
+        public DateTime getDob()
+        {
+            return this.dob;
+        }
+        public string getID()
+        {
+            return this.id;
+        }
+        public string GetSkills()
+        {
+            return string.Join(", ", skills);
+        }
+
+        public bool HasSkill(string skill)
+        {
+            return skills.Contains(skill);
+        }
+        public string GetLocation()
+        {
+            return this.address;
+        }
+
+        public string GetWorkMode()
+        {
+            return this.workMode;
+        }
         public override string toString()
         {
             string id = "Maid's ID: " + this.maidID + "\t";
@@ -48,19 +86,6 @@ namespace ConsoleApp1
             info += $"Skills: " + string.Join(", ", skills) + "\t";
             info += $"Work mode: {workMode}"+"\n"; //Hình thức làm việc.
             return id + info;
-        }
-        public bool HasSkill(string skill)
-        {
-            return skills.Contains(skill);
-        }
-        public string GetLocation()
-        { 
-            return this.address;
-        }
-
-        public string GetWorkMode()
-        {
-            return this.workMode;
         }
     }
 

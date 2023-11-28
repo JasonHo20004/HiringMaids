@@ -106,7 +106,7 @@ namespace ConsoleApp1
                                                 break;
                                             }
                                             else
-                                            {
+                                            {   
                                                 continue;
                                             }
                                         case (int)EOptions.Option2:
