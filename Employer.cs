@@ -12,10 +12,9 @@ namespace ConsoleApp1
         private List<string> requirements = new List<string>();
         private float salaryOffer;
         private string bonusRegime;
-        public List<DomesticHelper> hireHistory = new List<DomesticHelper>();
+        //public List<DomesticHelper> hireHistory = new List<DomesticHelper>();
         public List<Rating> ratingHistory;
-        public List<Contract> ListContract;
-        public Broker brokers;
+        public List<Contract> ListContract; 
         private string eID;
 
         // Constructor
@@ -83,7 +82,6 @@ namespace ConsoleApp1
             Console.WriteLine($"{"Phone number:",-15} | {this.phoneNumber}");
             Console.WriteLine($"{"Address:",-15} | {this.address}");                 
         }
-
         public void DisplayListContract()
         {
             Console.WriteLine("---------------------- List Contract ----------------------");
@@ -109,10 +107,28 @@ namespace ConsoleApp1
             Console.WriteLine("Do you want to cancel this contract ? (Y/N)");
             string s = Console.ReadLine();
             s = s.ToUpper();
-            if(s=="Y")
+            if (s == "Y")
             {
                 c.ChangeStatusContract();
                 Console.WriteLine("Canceled successfully!!!");
+            }
+            else return;
+        }
+        public void FeedBackHelper()
+        {
+            DisplayListContract();
+            Console.Write("Enter: ");
+            int input = int.Parse(Console.ReadLine());
+            var c = this.ListContract[input - 1];
+            Rating r = new Rating();
+            r.InputRating();
+            c.GetDomesticHelper().AddRatingHistory(r);
+        }
+        public void SeeRating()
+        {
+            foreach (Contract c in this.ListContract)
+            {
+                c.GetDomesticHelper().DisplayRatingHistory();
             }
         }
     }

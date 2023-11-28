@@ -26,6 +26,7 @@ namespace ConsoleApp1
             this.workMode = workMode; // Thiết lập giá trị cho thuộc tính hình thức làm việc
             this.maidID = maidID;
             this.ListContracts = new List<Contract>();
+            this.ratingHistory = new List<Rating>();
         }
         // Methods
         public float getSalaryOffer()
@@ -90,6 +91,17 @@ namespace ConsoleApp1
                 }
                 Console.WriteLine("---------------------------------------------------");
                 Console.WriteLine();
+            }
+        }
+        public void AddRatingHistory(Rating r)
+        {
+            this.ratingHistory.Add(r);
+        }
+        public void DisplayRatingHistory()
+        {
+            foreach (Rating r in this.ratingHistory)
+            {
+                r.PrintFeedback();
             }
         }
     }

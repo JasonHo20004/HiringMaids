@@ -16,6 +16,8 @@ namespace ConsoleApp1
             employer.DisplayHireHistory();
             employer.CancelContract();
             employer.DisplayListContract();
+            employer.FeedBackHelper();
+            employer.SeeRating();
             //ByBroker b = new ByBroker(employer);
             //b.SelectBrokerAndHelper();
             //a.filterDomesticHelper();
