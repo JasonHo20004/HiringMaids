@@ -12,7 +12,6 @@ namespace ConsoleApp1
         {
 
         }
-
         public LongtermContract(DateTime startDate, DateTime endDate, Employer employer, DomesticHelper domesticHelper, string workDescription, string location) : base(startDate, endDate, employer, domesticHelper, workDescription, location)
         {
             this.duration = 6;

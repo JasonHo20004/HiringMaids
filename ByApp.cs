@@ -25,7 +25,7 @@ namespace ConsoleApp1
         //    listHelper = new List<DomesticHelper>();
 
         //    DomesticHelper staff1 = new DomesticHelper("052204007418", "Dat", "0123", "Quan 1", "24/06/2004", 100, new List<string> { "cooking", "cleaning" }, "F", "DH01");
-           
+
         //    listHelper.Add(staff1);
         //    DomesticHelper staff2 = new DomesticHelper("052204007418", "Vu", "0123", "Quan 2", "24/06/2004", 100, new List<string> { "cooking" }, "P", "DH02");
         //    listHelper.Add(staff2);
@@ -128,6 +128,7 @@ namespace ConsoleApp1
                 s = s.ToUpper();
                 if (s == "Y")
                 {
+                    //employer.AddHireHistory(d);
                     if (d.GetWorkMode() == "F")
                     {
                         LongtermContract l = new LongtermContract(this.employer, d);

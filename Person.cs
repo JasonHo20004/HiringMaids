@@ -15,7 +15,7 @@ namespace ConsoleApp1
         protected string name;
         protected string phoneNumber;
         protected string address;
-        string id;
+        protected string id;
         protected DateTime dob;
 
         //Constructor
@@ -53,7 +53,11 @@ namespace ConsoleApp1
             Console.WriteLine($"{"Date of birth:",-15} | {this.dob.ToShortDateString()}");
             Console.WriteLine($"{"Phone number:",-15} | {this.phoneNumber}");
             Console.WriteLine($"{"Address:",-15} | {this.address}");
-            Console.WriteLine("----------------------------");
+            Console.WriteLine("----------------------------\n");
+        }
+        public string GetName()
+        {
+            return this.name;
         }
 
     }

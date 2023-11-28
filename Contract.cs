@@ -32,7 +32,6 @@ namespace ConsoleApp1
             this.endDate = endDate;
             this.location = location;
             this.workDescription = workDescription;
-
         }
         public Contract(DateTime startDate, DateTime endDate, Employer employer, DomesticHelper domesticHelper, string workDescription, string location)
         {
@@ -46,7 +45,6 @@ namespace ConsoleApp1
             this.workDescription = workDescription;
 
         }
-
         public Contract(Employer employer, DomesticHelper domesticHelper)
         {
             this.employer = employer;
@@ -67,6 +65,42 @@ namespace ConsoleApp1
             this.workDescription = Console.ReadLine();
             Console.Write("Input location: ");
             this.location = Console.ReadLine();
+        }
+        public DomesticHelper GetDomesticHelper()
+        {
+            return this.domesticHelper;
+        }
+        public Employer GetEmployer()
+        {
+            return this.employer;
+        }
+        public bool GetStatus()
+        {
+            return this.status;
+        }
+        public string GetWorkDescription()
+        {
+            return this.workDescription;
+        }
+        public DateTime GetStartDate()
+        {
+            return this.startDate;
+        }
+        public DateTime GetEndDate()
+        {
+            return this.endDate;
+        }
+        public bool CheckContractStatus()
+        {
+            if (this.startDate <= this.endDate)
+                return this.status = true;
+            else return this.status = false;
+        }
+        public void ChangeStatusContract()
+        {
+            DateTime d = DateTime.Now;
+            this.status = false;
+            this.endDate = d;
         }
     }
 }

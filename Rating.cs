@@ -9,13 +9,21 @@ namespace ConsoleApp1
     internal class Rating
     {
         //Attributes
-        float score;
+        int score;
         string comment;
         // Constructor
-        public Rating(float score, string comment)
+        public Rating(int score, string comment)
         {
             this.score = score;
             this.comment = comment;
+        }
+        public void InputRating()
+        {
+            Console.Write("Enter score: ");
+            int n=int.Parse(Console.ReadLine());
+            this.score = n;
+            Console.Write("Enter your feedback: ");
+            this.comment = Console.ReadLine();
         }
         //Methods
     }
