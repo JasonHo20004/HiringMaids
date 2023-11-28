@@ -26,7 +26,6 @@ namespace ConsoleApp1
             this.address = address;
             this.dob = dob;
         }
-        public Person() { }
         // Methods
         public virtual string toString()
         {

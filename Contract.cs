@@ -10,16 +10,13 @@ namespace ConsoleApp1
     {
         // Atrributes
         protected int duration;
-        //protected string broker;
-        //protected float commission;
         protected bool status;
         protected DomesticHelper domesticHelper;
         protected Employer employer;
         protected DateTime startDate;
         protected DateTime endDate;
-        protected string location;
-        //protected float hoursWork;
-        protected string workDescription;
+        protected string? location;
+        protected string? workDescription;
 
         // Constructors
         public Contract(DateTime startDate, DateTime endDate, int duration, Employer employer, DomesticHelper domesticHelper, string workDescription, string location)
@@ -53,20 +50,7 @@ namespace ConsoleApp1
             this.domesticHelper = domesticHelper;
         }
         // Methods
-        public virtual void printContract()
-        {
-            Console.WriteLine("----------------------------- LABOR CONTRACT FOR HIRE MAID -----------------------------");
-            Console.WriteLine("Party A - Employer ");
-            this.employer.printInforInColumn();
-            Console.WriteLine("Party B - Domestic Helper ");
-            this.domesticHelper.printInforInColumn();
-        }
-        public virtual void setupContract()
-        {
-            Console.Write("Describe detail tasks: ");
-            this.workDescription = Console.ReadLine();
-            Console.Write("Input location: ");
-            this.location = Console.ReadLine();
-        }
+        public virtual void printContract() { }
+        public virtual void setupContract() { }
     }
 }
