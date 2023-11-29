@@ -79,11 +79,11 @@ namespace ConsoleApp1
                         Contract contract;
                         if (selectedHelper.GetWorkMode() == "F")
                         {
-                            contract = new LongtermContract(employer, selectedHelper);
+                            contract = new LongTermContractByBroker(employer, selectedHelper,selectedBroker);
                         }
                         else
                         {
-                            contract = new ShorttermContract(employer, selectedHelper);
+                            contract = new ShortTermContractByBroker(employer, selectedHelper,selectedBroker);
                         }
                         employer.ListContract.Add(contract);
                         selectedHelper.ListContracts.Add(contract);

@@ -91,7 +91,7 @@ namespace ConsoleApp1
                
                     i++;
                     DomesticHelper d = c.GetDomesticHelper();
-                    Console.Write(i + "\t" + d.GetName()+"\t"+c.GetStartDate().ToShortDateString()+"\t");
+                    Console.Write(i + "\t" + d.getName()+"\t"+c.GetStartDate().ToShortDateString()+"\t");
                 if (c.GetStatus() == true) Console.WriteLine("Valid");
                 else Console.WriteLine("Expired");
 

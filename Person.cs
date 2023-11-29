@@ -28,7 +28,6 @@ namespace ConsoleApp1
             this.address = address;
             this.dob = DateTime.ParseExact(dob, format, CultureInfo.InvariantCulture);
         }
-        public Person() { }
         // Methods
         public virtual string toString()
         {
@@ -40,12 +39,14 @@ namespace ConsoleApp1
 
             return info;
         }
+        
         public virtual void printInfoOnRow()
         {
             Console.WriteLine(toString());
         }
+        
 
-        public virtual void printInforInColumn()
+        public void printInforInColumn()
         {
             Console.WriteLine("----------------------------");
             Console.WriteLine($"{"Name:",-15} | {this.name}");
@@ -55,7 +56,7 @@ namespace ConsoleApp1
             Console.WriteLine($"{"Address:",-15} | {this.address}");
             Console.WriteLine("----------------------------\n");
         }
-        public string GetName()
+        public string getName()
         {
             return this.name;
         }

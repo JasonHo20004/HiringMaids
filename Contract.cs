@@ -10,16 +10,13 @@ namespace ConsoleApp1
     {
         // Atrributes
         protected int duration;
-        //protected string broker;
-        //protected float commission;
         protected bool status;
         protected DomesticHelper domesticHelper;
         protected Employer employer;
         protected DateTime startDate;
         protected DateTime endDate;
-        protected string location;
-        //protected float hoursWork;
-        protected string workDescription;
+        protected string? location;
+        protected string? workDescription;
 
         // Constructors
         public Contract(DateTime startDate, DateTime endDate, int duration, Employer employer, DomesticHelper domesticHelper, string workDescription, string location)
@@ -43,7 +40,7 @@ namespace ConsoleApp1
             this.endDate = endDate;
             this.location = location;
             this.workDescription = workDescription;
-
+            
         }
         public Contract(Employer employer, DomesticHelper domesticHelper)
         {

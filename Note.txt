@@ -1,0 +1,3 @@
+﻿- Tìm việc. (Nhập yêu cầu tương tự như employer)
+- Hủy việc trước thời hạn -> Đền hợp đồng.
+

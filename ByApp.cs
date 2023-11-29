@@ -34,11 +34,25 @@ namespace ConsoleApp1
         //}
         public void printListDomesticHelper()
         {
+            Console.WriteLine("-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
+            Console.WriteLine("{0,-10} | {1,-15} | {2,-15} | {3,-15} | {4,-15} | {5, -15} | {6, -15} | {7, -15} | {8, -15}", "Helper ID", "Name", "ID", "Date of Birth", "Phone Number", "Address", "WorkMode", "SalaryOffer", "Skills");
+            Console.WriteLine("-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
+            foreach (DomesticHelper d in listHelper)
+            {
+                Console.WriteLine("{0,-10} | {1,-15} | {2,-15} | {3,-15} | {4,-15} | {5, -15} | {6, -15} | {7, -15} | {8, -15}",
+                    d.getMaidID(), d.getName(), d.getID(), d.getDob().ToShortDateString(), d.getPhoneNumber(), d.getAddress(), d.GetWorkMode(), d.getSalaryOffer(), d.GetSkills());
+            }
+            Console.WriteLine("-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
+        }
+        /*
+        public void printListDomesticHelper()
+        {
             foreach (DomesticHelper d in listHelper)
             {
                 d.printInfoOnRow();
             }
         }
+        */
         public void inputSalaryOffer()
         {
             float x = float.Parse(Console.ReadLine());
@@ -131,14 +145,14 @@ namespace ConsoleApp1
                     //employer.AddHireHistory(d);
                     if (d.GetWorkMode() == "F")
                     {
-                        LongtermContract l = new LongtermContract(this.employer, d);
+                        LongtermContractByApp l = new LongtermContractByApp(this.employer, d);
                         this.employer.ListContract.Add(l);
                         d.ListContracts.Add(l);
                         l.printContract();
                     }
                     else
                     {
-                        ShorttermContract l = new ShorttermContract(this.employer, d);
+                        ShortTermContractByApp l = new ShortTermContractByApp(this.employer, d);
                         this.employer.ListContract.Add(l);
                         d.ListContracts.Add(l);
                         l.printContract();

@@ -37,7 +37,28 @@ namespace ConsoleApp1
         {
             return this.maidID;
         }
-        public override string toString()
+
+        public string getName()
+        {
+            return this.name;
+        }
+        public string getPhoneNumber()
+        {
+            return this.phoneNumber;
+        }
+        public string getAddress()
+        {
+            return this.address;
+        }
+        public DateTime getDob()
+        {
+            return this.dob;
+        }
+        public string getID()
+        {
+            return this.id;
+        }
+        public string GetSkills()
         {
             string id = "Maid's ID: " + this.maidID + "\t";
             string info = base.toString();
@@ -68,15 +89,13 @@ namespace ConsoleApp1
             Console.WriteLine($"{"Address:",-15} | {this.address}");
             Console.WriteLine($"{"Salary:",-15} | {this.salaryOffer}");
             Console.WriteLine($"{"Work-mode:",-15} | {this.workMode}");
-           
-
         }
         public void DisplayHireHistory()
         {
             foreach (Contract c in this.ListContracts)
             {
                 c.CheckContractStatus();
-                Employer e = c.GetEmployer();                
+                Employer e = c.GetEmployer();
                 e.PrintSample();
                 if (c.GetStatus() == false)
                 {

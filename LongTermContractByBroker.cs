@@ -6,19 +6,19 @@ using System.Threading.Tasks;
 
 namespace ConsoleApp1
 {
-    internal class LongtermContract : Contract
+    internal class LongTermContractByBroker : ContractByBroker
     {
-        public LongtermContract(DateTime startDate, DateTime endDate, int duration, Employer employer, DomesticHelper domesticHelper, string workDescription, string location) : base(startDate, endDate, duration, employer, domesticHelper, workDescription, location)
+        public LongTermContractByBroker(DateTime startDate, DateTime endDate, int duration, Employer employer, DomesticHelper domesticHelper, string workDescription, string location,Broker broker) : base(startDate, endDate, duration, employer, domesticHelper, workDescription, location,broker)
         {
 
         }
-        public LongtermContract(DateTime startDate, DateTime endDate, Employer employer, DomesticHelper domesticHelper, string workDescription, string location) : base(startDate, endDate, employer, domesticHelper, workDescription, location)
-        {
-            this.duration = 6;
-        }
-        public LongtermContract(Employer employer, DomesticHelper domesticHelper) : base(employer, domesticHelper)
-        {
 
+        //public LongTermContractByBroker(DateTime startDate, DateTime endDate, Employer employer, DomesticHelper domesticHelper, string workDescription, string location) : base(startDate, endDate, employer, domesticHelper, workDescription, location)
+        //{
+        //    this.duration = 6;
+        //}
+        public LongTermContractByBroker(Employer employer, DomesticHelper domesticHelper, Broker broker) : base(employer, domesticHelper, broker)
+        {          
             this.duration = 6;
             setupContract();
         }
@@ -37,7 +37,7 @@ namespace ConsoleApp1
             Console.WriteLine(". Bonus regime: Hihihi");
             Console.WriteLine("------------------------------------------- END -------------------------------------------");
         }
-        public override void setupContract()
+        public void SetupContract()
         {
             base.setupContract();
             DateTime d = DateTime.Now;
