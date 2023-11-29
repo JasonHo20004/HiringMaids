@@ -56,180 +56,232 @@ namespace ConsoleApp1
         //Tạo đối tượng thuê bằng người môi giới
         ByBroker b = new ByBroker(myEmployer2);
 
-        public void StartMenu()
+        //public void StartMenu()
+        //{
+        //    int option = 20000;
+        //    EMenu currentMenu = EMenu.MainMenu;
+        //    char key;
+
+        //    while (true)
+        //    {
+        //        Console.Clear();
+        //        Console.WriteLine("============== HIRING MAID ==============");
+        //        PrintMenu(currentMenu, option);
+        //        ConsoleKeyInfo keyInfo = Console.ReadKey(true);
+
+        //        while (true)
+        //        {
+        //            switch (keyInfo.Key)
+        //            {
+        //                case ConsoleKey.Enter:
+        //                    switch (currentMenu)
+        //                    {
+        //                        case EMenu.MainMenu:
+        //                            switch (option % GetMenuOptions(currentMenu).Length)
+        //                            {
+        //                                case (int)EOptions.Option1:
+        //                                    currentMenu = EMenu.AppMenu;
+        //                                    break;
+        //                                case (int)EOptions.Option2:
+        //                                    currentMenu = EMenu.BrokerMenu;
+        //                                    break;
+        //                                case (int)EOptions.Option3:
+        //                                    currentMenu = EMenu.ContractMenu;
+        //                                    break;
+        //                                case (int)EOptions.Option4:
+        //                                    Exit();
+        //                                    break;
+        //                            }
+        //                            break;
+        //                        case EMenu.AppMenu:
+        //                            switch (option % GetMenuOptions(currentMenu).Length)
+        //                            {
+        //                                case (int)EOptions.Option1:
+        //                                    Console.Clear();
+        //                                    a.printListDomesticHelper();
+        //                                    Console.WriteLine("Do you want to return previous menu? (Y/N)");
+        //                                    key = Char.ToLower(Console.ReadKey().KeyChar);
+        //                                    if (key == 'y')
+        //                                    {
+        //                                        break;
+        //                                    }
+        //                                    else
+        //                                    {   
+        //                                        continue;
+        //                                    }
+        //                                case (int)EOptions.Option2:
+        //                                    Console.Clear();
+        //                                    a.filterDomesticHelper();
+        //                                    a.signContract();
+        //                                    Console.WriteLine("Do you want to return previous menu? (Y/N)");
+        //                                    key = Char.ToLower(Console.ReadKey().KeyChar);
+        //                                    if (key == 'y')
+        //                                    {
+        //                                        break;
+        //                                    }
+        //                                    else
+        //                                    {
+        //                                        continue;
+        //                                    }
+        //                                case (int)EOptions.Option3:
+        //                                    currentMenu = EMenu.MainMenu;
+        //                                    break;
+        //                            }
+        //                            break;
+        //                        case EMenu.BrokerMenu:
+        //                            switch (option % GetMenuOptions(currentMenu).Length)
+        //                            {
+        //                                case (int)EOptions.Option1:
+        //                                    Console.Clear();
+        //                                    b.SelectBrokerAndHelper();
+        //                                    Console.WriteLine("Do you want to return previous menu? (Y/N)");
+        //                                    key = Char.ToLower(Console.ReadKey().KeyChar);
+        //                                    if (key == 'y')
+        //                                    {
+        //                                        break;
+        //                                    }
+        //                                    else
+        //                                    {
+        //                                        continue;
+        //                                    }
+        //                                case (int)EOptions.Option2:
+        //                                    currentMenu = EMenu.MainMenu;
+        //                                    break;
+        //                            }
+        //                            break;
+        //                        case EMenu.ContractMenu:
+        //                            switch (option % GetMenuOptions(currentMenu).Length)
+        //                            {
+        //                                case (int)EOptions.Option1:
+        //                                    //Thêm method cho xem những bản hợp đồng
+        //                                    break;
+        //                                case (int)EOptions.Option2:
+        //                                    currentMenu = EMenu.MainMenu;
+        //                                    break;
+        //                            }
+        //                            break;
+        //                    }
+        //                    option = 0;
+        //                    break;
+        //                case ConsoleKey.UpArrow:
+        //                    option = (option - 1 + GetMenuOptions(currentMenu).Length) % GetMenuOptions(currentMenu).Length;
+        //                    break;
+        //                case ConsoleKey.DownArrow:
+        //                    option = (option + 1) % GetMenuOptions(currentMenu).Length;
+        //                    break;
+        //                case ConsoleKey.Escape:
+        //                    Exit();
+        //                    break;
+        //            }
+
+        //            if (currentMenu != EMenu.None)
+        //            {
+        //                Console.Clear();
+        //                PrintMenu(currentMenu, option);
+        //                break;
+        //            }
+        //        }
+
+        //        void PrintMenu(EMenu type, int option)
+        //        {
+        //            string[] options = GetMenuOptions(type);
+
+        //            for (int i = 0; i < options.Length; i++)
+        //            {
+        //                if (i == option % options.Length)
+        //                {
+        //                    Console.ForegroundColor = ConsoleColor.Black;
+        //                    Console.BackgroundColor = ConsoleColor.White;
+        //                    Console.WriteLine($"\t> {options[i]}");
+        //                    Console.ResetColor();
+        //                }
+        //                else
+        //                {
+        //                    Console.WriteLine($"\t{options[i]}");
+        //                }
+        //            }
+        //        }
+
+        //        string[] GetMenuOptions(EMenu type)
+        //        {
+        //            switch (type)
+        //            {
+        //                case EMenu.MainMenu:
+        //                    return new string[] { "1. Hiring maid by App.", "2. Hiring maid by Broker", "3. About Contract.", "4. Exit." };
+        //                case EMenu.AppMenu:
+        //                    return new string[] { "1. Show list of available Domestic Helper.", "2. Insert your requirement.", "3. Return to main menu." };
+        //                case EMenu.BrokerMenu:
+        //                    return new string[] { "1. Show list of available Broker.", "2. Return to main menu." };
+        //                case EMenu.ContractMenu:
+        //                    return new string[] { "1. Show available contracts.", "2. Return to main menu." };
+        //                default:
+        //                    return new string[0];
+        //            }
+        //        }
+
+        //    }
+        //    void Exit()
+        //    {
+        //        Console.WriteLine("Do you want to exit the program? (Y/N)");
+        //        char response = Char.ToLower(Console.ReadKey().KeyChar);
+
+        //        if (response == 'y')
+        //        {
+        //            Environment.Exit(0);
+        //        }
+        //    }
+        //}
+
+        public void DoMenu()
         {
-            int option = 20000;
-            EMenu currentMenu = EMenu.MainMenu;
-            char key;
-
-            while (true)
+            Employer employer = new Employer("052204007418", "Huy", "0123", "HCM", "24/06/2004", "E01");
+            ByApp a = new ByApp(employer);
+            bool flag = true;
+            do
             {
-                Console.Clear();
-                Console.WriteLine("============== HIRING MAID ==============");
-                PrintMenu(currentMenu, option);
-                ConsoleKeyInfo keyInfo = Console.ReadKey(true);
-
-                while (true)
+                Console.WriteLine("1. By App");
+                Console.WriteLine("2. By Broker");
+                Console.WriteLine("3. Contracts");
+                Console.WriteLine("4. Write Comment");
+                Console.WriteLine("0. Exit");
+                Console.Write("Enter: ");
+                int n = int.Parse(Console.ReadLine());
+                switch (n)
                 {
-                    switch (keyInfo.Key)
-                    {
-                        case ConsoleKey.Enter:
-                            switch (currentMenu)
+                    case 1:
+                        {
+                            bool flag1 = true;
+                            do
                             {
-                                case EMenu.MainMenu:
-                                    switch (option % GetMenuOptions(currentMenu).Length)
-                                    {
-                                        case (int)EOptions.Option1:
-                                            currentMenu = EMenu.AppMenu;
+                                Console.WriteLine("1. View List Domestic Helper ");
+                                Console.WriteLine("2. Hire");
+                                Console.WriteLine("0. Back to main Menu");
+                                int n1 = int.Parse(Console.ReadLine());
+                                switch (n1)
+                                {
+                                    case 0:
+                                        {
+                                           
+                                            flag1 = false; ;
                                             break;
-                                        case (int)EOptions.Option2:
-                                            currentMenu = EMenu.BrokerMenu;
-                                            break;
-                                        case (int)EOptions.Option3:
-                                            currentMenu = EMenu.ContractMenu;
-                                            break;
-                                        case (int)EOptions.Option4:
-                                            Exit();
-                                            break;
-                                    }
-                                    break;
-                                case EMenu.AppMenu:
-                                    switch (option % GetMenuOptions(currentMenu).Length)
-                                    {
-                                        case (int)EOptions.Option1:
-                                            Console.Clear();
+                                        }
+                                    case 1:
+                                        {
                                             a.printListDomesticHelper();
-                                            Console.WriteLine("Do you want to return previous menu? (Y/N)");
-                                            key = Char.ToLower(Console.ReadKey().KeyChar);
-                                            if (key == 'y')
-                                            {
-                                                break;
-                                            }
-                                            else
-                                            {   
-                                                continue;
-                                            }
-                                        case (int)EOptions.Option2:
-                                            Console.Clear();
-                                            a.filterDomesticHelper();
-                                            a.signContract();
-                                            Console.WriteLine("Do you want to return previous menu? (Y/N)");
-                                            key = Char.ToLower(Console.ReadKey().KeyChar);
-                                            if (key == 'y')
-                                            {
-                                                break;
-                                            }
-                                            else
-                                            {
-                                                continue;
-                                            }
-                                        case (int)EOptions.Option3:
-                                            currentMenu = EMenu.MainMenu;
                                             break;
-                                    }
-                                    break;
-                                case EMenu.BrokerMenu:
-                                    switch (option % GetMenuOptions(currentMenu).Length)
-                                    {
-                                        case (int)EOptions.Option1:
-                                            Console.Clear();
-                                            b.SelectBrokerAndHelper();
-                                            Console.WriteLine("Do you want to return previous menu? (Y/N)");
-                                            key = Char.ToLower(Console.ReadKey().KeyChar);
-                                            if (key == 'y')
-                                            {
-                                                break;
-                                            }
-                                            else
-                                            {
-                                                continue;
-                                            }
-                                        case (int)EOptions.Option2:
-                                            currentMenu = EMenu.MainMenu;
+                                        }
+                                    case 2:
+                                        {
                                             break;
-                                    }
-                                    break;
-                                case EMenu.ContractMenu:
-                                    switch (option % GetMenuOptions(currentMenu).Length)
-                                    {
-                                        case (int)EOptions.Option1:
-                                            //Thêm method cho xem những bản hợp đồng
-                                            break;
-                                        case (int)EOptions.Option2:
-                                            currentMenu = EMenu.MainMenu;
-                                            break;
-                                    }
-                                    break;
+                                        }
+
+                                }
                             }
-                            option = 0;
                             break;
-                        case ConsoleKey.UpArrow:
-                            option = (option - 1 + GetMenuOptions(currentMenu).Length) % GetMenuOptions(currentMenu).Length;
-                            break;
-                        case ConsoleKey.DownArrow:
-                            option = (option + 1) % GetMenuOptions(currentMenu).Length;
-                            break;
-                        case ConsoleKey.Escape:
-                            Exit();
-                            break;
-                    }
-
-                    if (currentMenu != EMenu.None)
-                    {
-                        Console.Clear();
-                        PrintMenu(currentMenu, option);
-                        break;
-                    }
-                }
-
-                void PrintMenu(EMenu type, int option)
-                {
-                    string[] options = GetMenuOptions(type);
-
-                    for (int i = 0; i < options.Length; i++)
-                    {
-                        if (i == option % options.Length)
-                        {
-                            Console.ForegroundColor = ConsoleColor.Black;
-                            Console.BackgroundColor = ConsoleColor.White;
-                            Console.WriteLine($"\t> {options[i]}");
-                            Console.ResetColor();
                         }
-                        else
-                        {
-                            Console.WriteLine($"\t{options[i]}");
-                        }
-                    }
-                }
-
-                string[] GetMenuOptions(EMenu type)
-                {
-                    switch (type)
-                    {
-                        case EMenu.MainMenu:
-                            return new string[] { "1. Hiring maid by App.", "2. Hiring maid by Broker", "3. About Contract.", "4. Exit." };
-                        case EMenu.AppMenu:
-                            return new string[] { "1. Show list of available Domestic Helper.", "2. Insert your requirement.", "3. Return to main menu." };
-                        case EMenu.BrokerMenu:
-                            return new string[] { "1. Show list of available Broker.", "2. Return to main menu." };
-                        case EMenu.ContractMenu:
-                            return new string[] { "1. Show available contracts.", "2. Return to main menu." };
-                        default:
-                            return new string[0];
-                    }
-                }
-
-            }
-            void Exit()
-            {
-                Console.WriteLine("Do you want to exit the program? (Y/N)");
-                char response = Char.ToLower(Console.ReadKey().KeyChar);
-
-                if (response == 'y')
-                {
-                    Environment.Exit(0);
                 }
             }
+            while (flag == false);
         }
     }
 }

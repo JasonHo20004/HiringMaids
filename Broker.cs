@@ -44,9 +44,12 @@ namespace ConsoleApp1
             Console.WriteLine("--------------------------------------------------------------------------------------------------------------------------------------------------------------------");
             foreach (DomesticHelper helper in listHelper)
             {
-                Console.Write("{0,-10} | {1,-15} | {2,-15} | {3,-15} | {4,-15} | {5, -15} | {6, -15} | {7, -15} | {8, -15}",
+                string text = String.Format("{0,-10} | {1,-15} | {2,-15} | {3,-15} | {4,-15} | {5, -15} | {6, -15} | {7, -15} | {8, -15}",
                     helper.getMaidID(), helper.getName(), helper.getID(), helper.getDob().ToShortDateString(), helper.getPhoneNumber(), helper.getAddress(), helper.GetWorkMode(), helper.getSalaryOffer(), helper.GetSkills());
-                Console.WriteLine();
+                //Console.Write("{0,-10} | {1,-15} | {2,-15} | {3,-15} | {4,-15} | {5, -15} | {6, -15} | {7, -15} | {8, -15}",
+                //    helper.getMaidID(), helper.getName(), helper.getID(), helper.getDob().ToShortDateString(), helper.getPhoneNumber(), helper.getAddress(), helper.GetWorkMode(), helper.getSalaryOffer(), helper.GetSkills());
+                //Console.WriteLine();
+                Console.WriteLine(text);
             }
             Console.WriteLine("--------------------------------------------------------------------------------------------------------------------------------------------------------------------");
         }

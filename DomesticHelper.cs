@@ -38,10 +38,7 @@ namespace ConsoleApp1
             return this.maidID;
         }
 
-        public string getName()
-        {
-            return this.name;
-        }
+     
         public string getPhoneNumber()
         {
             return this.phoneNumber;
@@ -60,12 +57,15 @@ namespace ConsoleApp1
         }
         public string GetSkills()
         {
-            string id = "Maid's ID: " + this.maidID + "\t";
-            string info = base.toString();
-            info += $"Salary offer: {salaryOffer} \t";
-            info += $"Skills: " + string.Join(", ", skills) + "\t";
-            info += $"Work mode: {workMode}" + "\n"; //Hình thức làm việc.
-            return id + info;
+            string s = "";
+            foreach (string i in this.skills)
+            {
+                s = s + i;
+                s = s + ", ";
+            }
+            //s= s.TrimEnd(' ');
+            //s = s.TrimEnd(',');
+            return s;
         }
         public bool HasSkill(string skill)
         {
