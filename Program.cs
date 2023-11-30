@@ -20,15 +20,16 @@ namespace ConsoleApp1
             //employer.DisplayListContract();
             //employer.FeedBackHelper();
             //employer.SeeRating();
-            ////ByBroker b = new ByBroker(employer);
-            ////b.SelectBrokerAndHelper();
-            ////a.filterDomesticHelper();
-            ////Console.WriteLine(employer.ListContract.Count());
-            ////a.signContract();
-            ////Console.WriteLine(employer.ListContract.Count());
-            ////Menu
+            //ByBroker b = new ByBroker(employer);
+            //b.SelectBrokerAndHelper();
+            //a.filterDomesticHelper();
+            //Console.WriteLine(employer.ListContract.Count());
+            //a.signContract();
+            //Console.WriteLine(employer.ListContract.Count());
+            //Menu
             Menu myMenu = new Menu();
-            myMenu.StartMenu();
+            //myMenu.StartMenu();
+            myMenu.DoMenu();
         }
     }
     }

@@ -49,6 +49,15 @@ namespace ConsoleApp1
             this.domesticHelper.printInforInColumn();
         }
 
+        public virtual void printContract()
+        {
+            Console.WriteLine("----------------------------- LABOR CONTRACT FOR HIRE MAID -----------------------------");
+            Console.WriteLine("Party A - Employer ");
+            this.employer.printInforInColumn();
+            Console.WriteLine("Party B - Domestic Helper ");
+            this.domesticHelper.printInforInColumn();
+        }
+
         public override void setupContract()
         {
             Console.Write("Describe detail tasks: ");
