@@ -47,14 +47,16 @@ namespace ConsoleApp1
     internal class Menu
     {
         //Tạo người thuê
-        static Employer myEmployer1 = new Employer("052204007418", "Nguyen Van Vu", "0123", "01 Vo Van Ngan", new DateTime(2004, 1, 1));
-        static Employer myEmployer2 = new Employer("072204000255", "Ho Thanh Dat", "0123", "02 Vo Van Ngan", new DateTime(2004, 3, 26));
+        static Employer myEmployer1 = new Employer("052204007418", "Nguyen Van Vu", "0123", "01 Vo Van Ngan", "24/06/2004", "E01");
 
         //Tạo đối tượng thuê bằng app
         ByApp a = new ByApp(myEmployer1);
 
         //Tạo đối tượng thuê bằng người môi giới
-        ByBroker b = new ByBroker(myEmployer2);
+        ByBroker b = new ByBroker(myEmployer1);
+
+        //Tao danh gia
+        Rating c = new Rating();
 
         public void StartMenu()
         {
@@ -106,13 +108,33 @@ namespace ConsoleApp1
                                                 break;
                                             }
                                             else
-                                            {   
+                                            {
                                                 continue;
                                             }
                                         case (int)EOptions.Option2:
                                             Console.Clear();
-                                            a.filterDomesticHelper();
-                                            a.signContract();
+                                            if (a.filterDomesticHelper())
+                                            {
+                                                a.signContract();
+                                                Console.WriteLine("Do you want to return previous menu? (Y/N)");
+                                                key = Char.ToLower(Console.ReadKey().KeyChar);
+                                                if (key == 'y')
+                                                {
+                                                    break;
+                                                }
+                                                else
+                                                {
+                                                    continue;
+                                                }
+                                            }
+                                            else
+                                            {
+                                                Console.WriteLine("No suitable domestic helper found. Returning to previous menu.");
+                                            }
+                                            break;
+                                        case (int)EOptions.Option3:
+                                            Console.Clear();
+                                            c.InputRating();
                                             Console.WriteLine("Do you want to return previous menu? (Y/N)");
                                             key = Char.ToLower(Console.ReadKey().KeyChar);
                                             if (key == 'y')
@@ -123,7 +145,7 @@ namespace ConsoleApp1
                                             {
                                                 continue;
                                             }
-                                        case (int)EOptions.Option3:
+                                        case (int)EOptions.Option4:
                                             currentMenu = EMenu.MainMenu;
                                             break;
                                     }
@@ -154,8 +176,31 @@ namespace ConsoleApp1
                                     {
                                         case (int)EOptions.Option1:
                                             //Thêm method cho xem những bản hợp đồng
-                                            break;
+                                            Console.Clear();
+                                            myEmployer1.DisplayListContract();
+                                            Console.WriteLine("Do you want to return previous menu? (Y/N)");
+                                            key = Char.ToLower(Console.ReadKey().KeyChar);
+                                            if (key == 'y')
+                                            {
+                                                break;
+                                            }
+                                            else
+                                            {
+                                                continue;
+                                            }
                                         case (int)EOptions.Option2:
+                                            myEmployer1.CancelContract();
+                                            Console.WriteLine("Do you want to return previous menu? (Y/N)");
+                                            key = Char.ToLower(Console.ReadKey().KeyChar);
+                                            if (key == 'y')
+                                            {
+                                                break;
+                                            }
+                                            else
+                                            {
+                                                continue;
+                                            }
+                                        case (int)EOptions.Option3:
                                             currentMenu = EMenu.MainMenu;
                                             break;
                                     }
@@ -209,17 +254,18 @@ namespace ConsoleApp1
                         case EMenu.MainMenu:
                             return new string[] { "1. Hiring maid by App.", "2. Hiring maid by Broker", "3. About Contract.", "4. Exit." };
                         case EMenu.AppMenu:
-                            return new string[] { "1. Show list of available Domestic Helper.", "2. Insert your requirement.", "3. Return to main menu." };
+                            return new string[] { "1. Show list of available Domestic Helper.", "2. Insert your requirement.","3. Rating.", "4. Return to main menu." };
                         case EMenu.BrokerMenu:
                             return new string[] { "1. Show list of available Broker.", "2. Return to main menu." };
                         case EMenu.ContractMenu:
-                            return new string[] { "1. Show available contracts.", "2. Return to main menu." };
+                            return new string[] { "1. Show available contracts.","2. Cancel Contract.", "3. Return to main menu." };
                         default:
                             return new string[0];
                     }
                 }
 
             }
+
             void Exit()
             {
                 Console.WriteLine("Do you want to exit the program? (Y/N)");
