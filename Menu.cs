@@ -47,14 +47,14 @@ namespace ConsoleApp1
     internal class Menu
     {
         //Tạo người thuê
-        //static Employer myEmployer1 = new Employer("052204007418", "Nguyen Van Vu", "0123", "01 Vo Van Ngan", "24/06/2004", "E01");
-        //static Employer myEmployer2 = new Employer("072204000255", "Ho Thanh Dat", "0123", "02 Vo Van Ngan", "24/03/2004", "E02");
+        static Employer myEmployer1 = new Employer("052204007418", "Nguyen Van Vu", "0123", "01 Vo Van Ngan", "24/06/2004","E01");
+        static Employer myEmployer2 = new Employer("072204000255", "Ho Thanh Dat", "0123", "02 Vo Van Ngan", "24/03/2004","E02");
 
-        ////Tạo đối tượng thuê bằng app
-        //ByApp a = new ByApp(myEmployer1);
+        //Tạo đối tượng thuê bằng app
+        ByApp a = new ByApp(myEmployer1);
 
-        ////Tạo đối tượng thuê bằng người môi giới
-        //ByBroker b = new ByBroker(myEmployer2);
+        //Tạo đối tượng thuê bằng người môi giới
+        ByBroker b = new ByBroker(myEmployer2);
 
         //public void StartMenu()
         //{
@@ -236,15 +236,13 @@ namespace ConsoleApp1
         {
             Employer employer = new Employer("052204007418", "Huy", "0123", "HCM", "24/06/2004", "E01");
             ByApp a = new ByApp(employer);
-            ByBroker b = new ByBroker(employer);
             bool flag = true;
             do
             {
                 Console.WriteLine("1. By App");
                 Console.WriteLine("2. By Broker");
                 Console.WriteLine("3. Contracts");
-                Console.WriteLine("4. Rating");
-                Console.WriteLine("5. View Hire History");
+                Console.WriteLine("4. Write Comment");
                 Console.WriteLine("0. Exit");
                 Console.Write("Enter: ");
                 int n = int.Parse(Console.ReadLine());
@@ -263,7 +261,7 @@ namespace ConsoleApp1
                                 {
                                     case 0:
                                         {
-
+                                           
                                             flag1 = false; ;
                                             break;
                                         }
@@ -274,120 +272,16 @@ namespace ConsoleApp1
                                         }
                                     case 2:
                                         {
-                                            a.filterDomesticHelper();
-                                            a.signContract();
                                             break;
                                         }
-                                }
-                            }while (flag1==true);
-                            break;
-                        }
-                    case 0:
-                        {
-                            flag = false;
-                            break;
-                        }
-                    case 2:
-                        {
-                            bool flag1 = true;
-                            do
-                            {
-                                Console.WriteLine("1. View List Broker ");
-                                Console.WriteLine("2. Hire");
-                                Console.WriteLine("0. Back to main Menu");
-                                int n1 = int.Parse(Console.ReadLine());
-                                switch (n1)
-                                {
-                                    case 0:
-                                        {
 
-                                            flag1 = false; ;
-                                            break;
-                                        }
-                                    case 1:
-                                        {
-                                            b.ShowListBroker();
-                                            break;
-                                        }
-                                    case 2:
-                                        {
-                                            b.SelectBrokerAndHelper();
-                                            break;
-                                        }                                     
                                 }
-                            } while (flag1 == true);
-                            break;
-                        }
-                    case 3:
-                        {
-                            bool flag1 = true;
-                            do
-                            {
-                                Console.WriteLine("1. View List Contract ");
-                                Console.WriteLine("2. Cancel Contract");
-                                Console.WriteLine("0. Back to main Menu");
-                                int n1 = int.Parse(Console.ReadLine());
-                                switch (n1)
-                                {
-                                    case 0:
-                                        {
-
-                                            flag1 = false; ;
-                                            break;
-                                        }
-                                    case 1:
-                                        {
-                                            employer.DisplayListContract();
-                                            break;
-                                        }
-                                    case 2:
-                                        {
-                                            employer.CancelContract();
-                                            break;
-                                        }
-                                }
-                            } while (flag1 == true);
-                            break;
-                        }
-                    case 4:
-                        {
-                            bool flag1 = true;
-                            do
-                            {
-                                Console.WriteLine("1. View Rating ");
-                                Console.WriteLine("2. Write FeedBack");
-                                Console.WriteLine("0. Back to main Menu");
-                                int n1 = int.Parse(Console.ReadLine());
-                                switch (n1)
-                                {
-                                    case 0:
-                                        {
-
-                                            flag1 = false; ;
-                                            break;
-                                        }
-                                    case 1:
-                                        {
-                                            employer.SeeRating();
-                                            break;
-                                        }
-                                    case 2:
-                                        {
-                                            employer.FeedBackHelper();
-                                            break;
-                                        }
-                                }
-                            } while (flag1 == true);
-                            break;
-                        }
-                    case 5:
-                        {
-                            employer.DisplayHireHistory();
+                            }
                             break;
                         }
                 }
             }
-            while (flag == true);
+            while (flag == false);
         }
     }
 }

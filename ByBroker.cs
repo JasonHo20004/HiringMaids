@@ -43,13 +43,6 @@ namespace ConsoleApp1
                 helper.printInfoOnRow();
             }
         }
-        public void ShowListBroker()
-        {
-            foreach (Broker broker in brokers) // Use brokers list from this class
-            {
-                broker.printInfoOnRow();
-            }
-        }
         public void SelectBrokerAndHelper()
         {
             foreach (Broker broker in brokers) // Use brokers list from this class

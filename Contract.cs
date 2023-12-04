@@ -46,7 +46,6 @@ namespace ConsoleApp1
         {
             this.employer = employer;
             this.domesticHelper = domesticHelper;
-            this.status = true;
         }
         // Methods
         public virtual void printContract()

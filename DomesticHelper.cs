@@ -123,16 +123,6 @@ namespace ConsoleApp1
                 r.PrintFeedback();
             }
         }
-        public override string toString()
-        {
-            string id = $"Maid ID: {this.maidID}\t";
-            string info = base.toString();
-            id = id + info;
-            return id;
-        }
-        
-            
-        
     }
 
 }

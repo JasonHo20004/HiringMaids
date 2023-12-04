@@ -45,7 +45,15 @@ namespace ConsoleApp1
             }
             Console.WriteLine("-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
         }
-
+        /*
+        public void printListDomesticHelper()
+        {
+            foreach (DomesticHelper d in listHelper)
+            {
+                d.printInfoOnRow();
+            }
+        }
+        */
         public void inputSalaryOffer()
         {
             float x = float.Parse(Console.ReadLine());
