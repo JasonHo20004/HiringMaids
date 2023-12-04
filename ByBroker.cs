@@ -11,34 +11,32 @@ namespace ConsoleApp1
         // In thông tin của từng Broker thì dùng hàm printInforOnRow nha, in vậy để Employee dễ xem dễ chọn
         private List<DomesticHelper> suggestedHelpers;
         private Employer employer;
-        private List<Broker> brokers;
+        private List<Broker> brokers = ListBroker.ImportData();
         public ByBroker(Employer employer)
         {
             this.employer = employer;
             suggestedHelpers = new List<DomesticHelper>();
-            brokers = new List<Broker>();
-            createData();
+            //brokers = new List<Broker>();
+            //createData();
         }
 
-        public void createData()
-        {
-            DomesticHelper helper1 = new DomesticHelper("052204007418", "Dat", "0123", "Quan 1", new DateTime(2023, 1, 1), 100, new List<string> { "cooking", "cleaning" }, "F", "DH01");
-            suggestedHelpers.Add(helper1);
-            DomesticHelper helper2 = new DomesticHelper("052204007418", "Vu", "0123", "Quan 2", new DateTime(2023, 06, 24), 100, new List<string> { "cooking" }, "F", "DH02");
-            suggestedHelpers.Add(helper2);
-            DomesticHelper helper3 = new DomesticHelper("052204007420", "Mai", "0123", "Quan 4", new DateTime(2023, 3, 15), 120, new List<string> { "cleaning" }, "F", "DH03");
-            suggestedHelpers.Add(helper3);
-            DomesticHelper helper4 = new DomesticHelper("052204007421", "Duc", "0123", "Quan 5", new DateTime(2023, 9, 10), 80, new List<string> { "cooking" }, "F", "DH04");
-            suggestedHelpers.Add(helper4);
+        //public void createData()
+        //{
+        //    DomesticHelper helper1 = new DomesticHelper("052204007418", "Dat", "0123", "Quan 1", "24/06/2004", 100, new List<string> { "cooking", "cleaning" }, "F", "DH01");
+        //    suggestedHelpers.Add(helper1);
+        //    DomesticHelper helper2 = new DomesticHelper("052204007418", "Vu", "0123", "Quan 2", "24/06/2004", 100, new List<string> { "cooking" }, "F", "DH02");
+        //    suggestedHelpers.Add(helper2);
+        //    DomesticHelper helper3 = new DomesticHelper("052204007420", "Mai", "0123", "Quan 4", "24/06/2004", 120, new List<string> { "cleaning" }, "F", "DH03");
+        //    suggestedHelpers.Add(helper3);
+        //    DomesticHelper helper4 = new DomesticHelper("052204007421", "Duc", "0123", "Quan 5", "24/06/2004", 80, new List<string> { "cooking" }, "F", "DH04");
+        //    suggestedHelpers.Add(helper4);
+        //    Broker broker1 = new Broker("052204007419", "Xuan Huy", "0123", "Quan 3", "24/06/2004", new List<DomesticHelper> { helper1, helper2 }, 100, "001");
+        //    brokers.Add(broker1); // Add broker1 to brokers list
+        //    Broker broker2 = new Broker("052204007422", "Ngoc Linh", "0123", "Quan 5", "24/06/2004", new List<DomesticHelper> { helper3, helper4 }, 120, "002");
+        //    brokers.Add(broker2); // Add broker2 to brokers list
+        //}
 
-            Broker broker1 = new Broker("052204007419", "Xuan Huy", "0123", "Quan 3", new DateTime(2023, 06, 24), new List<DomesticHelper> { helper1, helper2 }, 100, "001");
-            brokers.Add(broker1); // Add broker1 to brokers list
-
-            Broker broker2 = new Broker("052204007422", "Ngoc Linh", "0123", "Quan 5", new DateTime(2023, 9, 10), new List<DomesticHelper> { helper3, helper4 }, 120, "002");
-            brokers.Add(broker2); // Add broker2 to brokers list
-        }
-
-        public void ShowSuggestedHelpers()  
+        public void ShowSuggestedHelpers()
         {
             foreach (DomesticHelper helper in suggestedHelpers)
             {
@@ -81,11 +79,11 @@ namespace ConsoleApp1
                         Contract contract;
                         if (selectedHelper.GetWorkMode() == "F")
                         {
-                            contract = new LongTermContractByBroker(employer, selectedHelper);
+                            contract = new LongTermContractByBroker(employer, selectedHelper,selectedBroker);
                         }
                         else
                         {
-                            contract = new ShortTermContractByBroker(employer, selectedHelper);
+                            contract = new ShortTermContractByBroker(employer, selectedHelper,selectedBroker);
                         }
                         employer.ListContract.Add(contract);
                         selectedHelper.ListContracts.Add(contract);

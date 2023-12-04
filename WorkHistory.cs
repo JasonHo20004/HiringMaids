@@ -20,7 +20,6 @@ namespace ConsoleApp1
         DateTime startDate;
         DateTime endDate;
         float completion;
-
         // Constructors
         public WorkHistory(string workLocation, float salary, DateTime startDate, DateTime endDate, float completion)
         {

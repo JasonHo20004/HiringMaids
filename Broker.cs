@@ -12,12 +12,17 @@ namespace ConsoleApp1
         List<Broker> brokers;
         double commission;
         string brokerID; // Broker ID để employee chọn
-        public Broker(string id, string name, string phoneNumber, string address, DateTime dob, List<DomesticHelper> listHelper, double commission, string brokerID) : base(id, name, phoneNumber, address, dob)
+
+        public Broker(string id, string name, string phoneNumber, string address, string dob, List<DomesticHelper> listHelper, double commission, string brokerID) : base(id, name, phoneNumber, address, dob)
         {
             this.listHelper = listHelper;
             this.commission = commission;
             this.brokerID = brokerID;
-            this.brokers = new List<Broker>();
+            //this.brokers = new List<Broker>();
+        }
+        public List<DomesticHelper> GetListHelpers()
+        {
+            return this.listHelper;
         }
         public void AddBroker(Broker broker)
         {
@@ -39,8 +44,12 @@ namespace ConsoleApp1
             Console.WriteLine("--------------------------------------------------------------------------------------------------------------------------------------------------------------------");
             foreach (DomesticHelper helper in listHelper)
             {
-                Console.WriteLine("{0,-10} | {1,-15} | {2,-15} | {3,-15} | {4,-15} | {5, -15} | {6, -15} | {7, -15} | {8, -15}",
+                string text = String.Format("{0,-10} | {1,-15} | {2,-15} | {3,-15} | {4,-15} | {5, -15} | {6, -15} | {7, -15} | {8, -15}",
                     helper.getMaidID(), helper.getName(), helper.getID(), helper.getDob().ToShortDateString(), helper.getPhoneNumber(), helper.getAddress(), helper.GetWorkMode(), helper.getSalaryOffer(), helper.GetSkills());
+                //Console.Write("{0,-10} | {1,-15} | {2,-15} | {3,-15} | {4,-15} | {5, -15} | {6, -15} | {7, -15} | {8, -15}",
+                //    helper.getMaidID(), helper.getName(), helper.getID(), helper.getDob().ToShortDateString(), helper.getPhoneNumber(), helper.getAddress(), helper.GetWorkMode(), helper.getSalaryOffer(), helper.GetSkills());
+                //Console.WriteLine();
+                Console.WriteLine(text);
             }
             Console.WriteLine("--------------------------------------------------------------------------------------------------------------------------------------------------------------------");
         }

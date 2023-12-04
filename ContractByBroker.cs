@@ -8,21 +8,18 @@ namespace ConsoleApp1
 {
     internal class ContractByBroker : Contract
     {
-        protected double commission;
-        public Broker brokers;
-
-        public ContractByBroker(DateTime startDate, DateTime endDate, int duration, Employer employer, DomesticHelper domesticHelper, Broker broker, string workDescription, string location, double commission) : base(employer, domesticHelper)
+        //protected double commission;
+        protected Broker brokers;
+        public ContractByBroker(DateTime startDate, DateTime endDate, int duration, Employer employer, DomesticHelper domesticHelper, string workDescription, string location, Broker broker) : base(startDate, endDate, duration, employer, domesticHelper, workDescription, location)
         {
-            this.startDate = startDate;
-            this.endDate = endDate;
-            this.duration = duration;
-            this.employer = employer;
-            this.workDescription = workDescription;
-            this.location = location;
-            this.commission = commission;
-            this.brokers = broker;
+          this.brokers = broker;
         }
+        public ContractByBroker(Employer employer, DomesticHelper domesticHelper, Broker broker) : base(employer, domesticHelper)
+        {
+            
+            this.brokers = broker;
 
+        }
         public override void printContract()
         {
             Console.WriteLine("----------------------------- LABOR CONTRACT FOR HIRE MAID -----------------------------");

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Net;
 using System.Text;
@@ -14,17 +15,18 @@ namespace ConsoleApp1
         protected string name;
         protected string phoneNumber;
         protected string address;
-        string id;
+        protected string id;
         protected DateTime dob;
 
         //Constructor
-        public Person(string id, string name, string phoneNumber, string address, DateTime dob)
+        public Person(string id, string name, string phoneNumber, string address, string dob)
         {
+            string format = "dd/MM/yyyy";
             this.id = id;
             this.name = name;
             this.phoneNumber = phoneNumber;
             this.address = address;
-            this.dob = dob;
+            this.dob = DateTime.ParseExact(dob, format, CultureInfo.InvariantCulture);
         }
         // Methods
         public virtual string toString()
@@ -52,7 +54,11 @@ namespace ConsoleApp1
             Console.WriteLine($"{"Date of birth:",-15} | {this.dob.ToShortDateString()}");
             Console.WriteLine($"{"Phone number:",-15} | {this.phoneNumber}");
             Console.WriteLine($"{"Address:",-15} | {this.address}");
-            Console.WriteLine("----------------------------");
+            Console.WriteLine("----------------------------\n");
+        }
+        public string getName()
+        {
+            return this.name;
         }
 
     }

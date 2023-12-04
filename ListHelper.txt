@@ -1,0 +1,4 @@
+﻿052204007418;Vu;0123456;Quan 1;24/06/2004;100;F;DH01;cooking;cleaning
+052204307418;Dat;0123456;Quan 2;24/06/2004;150;P;DH02;cooking;cleaning;taking care of children
+052204407418;Loc;0123456;Quan 2;24/06/2004;200;F;DH03;cleaning
+052304307418;Huy;0123456;Quan 2;24/06/2004;300;P;DH04;cooking;cleaning

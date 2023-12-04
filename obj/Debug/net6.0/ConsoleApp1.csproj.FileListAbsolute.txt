@@ -1,0 +1,15 @@
+C:\OOP C#\HiringMaids-VuCodeSpace\obj\Debug\net6.0\ConsoleApp1.csproj.AssemblyReference.cache
+C:\OOP C#\HiringMaids-VuCodeSpace\obj\Debug\net6.0\ConsoleApp1.GeneratedMSBuildEditorConfig.editorconfig
+C:\OOP C#\HiringMaids-VuCodeSpace\obj\Debug\net6.0\ConsoleApp1.AssemblyInfoInputs.cache
+C:\OOP C#\HiringMaids-VuCodeSpace\obj\Debug\net6.0\ConsoleApp1.AssemblyInfo.cs
+C:\OOP C#\HiringMaids-VuCodeSpace\obj\Debug\net6.0\ConsoleApp1.csproj.CoreCompileInputs.cache
+C:\OOP C#\HiringMaids-VuCodeSpace\bin\Debug\net6.0\ConsoleApp1.exe
+C:\OOP C#\HiringMaids-VuCodeSpace\bin\Debug\net6.0\ConsoleApp1.deps.json
+C:\OOP C#\HiringMaids-VuCodeSpace\bin\Debug\net6.0\ConsoleApp1.runtimeconfig.json
+C:\OOP C#\HiringMaids-VuCodeSpace\bin\Debug\net6.0\ConsoleApp1.dll
+C:\OOP C#\HiringMaids-VuCodeSpace\bin\Debug\net6.0\ConsoleApp1.pdb
+C:\OOP C#\HiringMaids-VuCodeSpace\obj\Debug\net6.0\ConsoleApp1.dll
+C:\OOP C#\HiringMaids-VuCodeSpace\obj\Debug\net6.0\refint\ConsoleApp1.dll
+C:\OOP C#\HiringMaids-VuCodeSpace\obj\Debug\net6.0\ConsoleApp1.pdb
+C:\OOP C#\HiringMaids-VuCodeSpace\obj\Debug\net6.0\ConsoleApp1.genruntimeconfig.cache
+C:\OOP C#\HiringMaids-VuCodeSpace\obj\Debug\net6.0\ref\ConsoleApp1.dll

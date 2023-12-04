@@ -6,24 +6,28 @@ using System.Threading.Tasks;
 
 namespace ConsoleApp1
 {
-    internal class ShortTermContractByBroker : Contract
+    internal class ShortTermContractByBroker : ContractByBroker
     {
         protected float hourPerDay;
-        protected double commission;
-        public Broker broker;
+        //protected double commission;
+        //public Broker broker;
 
-        public ShortTermContractByBroker(DateTime startDate, DateTime endDate, int duration, Employer employer, DomesticHelper domesticHelper, Broker broker, string workDescription, string location, float hourPerDay, double commission)
-            : base(startDate, endDate, duration, employer, domesticHelper, workDescription, location)
-        {
-            this.hourPerDay = hourPerDay;
-            this.broker = broker;
-            this.commission = commission;
-        }
+        //public ShortTermContractByBroker(DateTime startDate, DateTime endDate, int duration, Employer employer, DomesticHelper domesticHelper, Broker broker, string workDescription, string location, Broker broker) : base(startDate, endDate, duration, employer, domesticHelper, broker, workDescription, location, broker)
+        //{
+        //}
 
-        public ShortTermContractByBroker(Employer employer, DomesticHelper domesticHelper) : base(employer, domesticHelper)
-        {
+        //public ShortTermContractByBroker(DateTime startDate, DateTime endDate, int duration, Employer employer, DomesticHelper domesticHelper, Broker broker, string workDescription, string location, float hourPerDay, double commission)
+        //    : base(startDate, endDate, duration, employer, domesticHelper, workDescription, location)
+        //{
+        //    this.hourPerDay = hourPerDay;
+        //    this.broker = broker;
+        //    this.commission = commission;
+        //}
+
+        public ShortTermContractByBroker(Employer employer, DomesticHelper domesticHelper, Broker broker) : base(employer, domesticHelper, broker)
+        {         
             setupContract();
-        }
+        }    
 
         public override void printContract()
         {
@@ -51,9 +55,9 @@ namespace ConsoleApp1
             DateTime d = DateTime.Now;
             this.startDate = d;
             this.endDate = d.AddDays(this.duration);
-            Console.Write("Input broker name: ");
-            string brokerName = Console.ReadLine();
-            //this.broker = new Broker(brokerName);
+            //Console.Write("Input broker name: ");
+            //string brokerName = Console.ReadLine();
+            ////this.broker = new Broker(brokerName);
         }
     }
 }
