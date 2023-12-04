@@ -28,7 +28,7 @@ namespace ConsoleApp1
             ////Console.WriteLine(employer.ListContract.Count());
             ////Menu
             Menu myMenu = new Menu();
-            myMenu.StartMenu();
+            myMenu.DoMenu();
         }
     }
     }
