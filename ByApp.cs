@@ -12,6 +12,7 @@ namespace ConsoleApp1
         // Attributes
         List<DomesticHelper> listHelper = ListHelper.ImportData();
         Employer employer;
+        private IEnumerable<DomesticHelper> filteredStaff;
         // Constructor
         public ByApp(Employer employer)
         {
@@ -50,10 +51,9 @@ namespace ConsoleApp1
             float x = float.Parse(Console.ReadLine());
             this.employer.setSalaryOffer(x);
         }
-
-        public void filterDomesticHelper()
+        
+        public bool filterDomesticHelper()
         {
-
             bool continueFiltering = true;
             while (continueFiltering)
             {
@@ -63,7 +63,7 @@ namespace ConsoleApp1
                 if (!filteredBySalary.Any())
                 {
                     Console.WriteLine("No domestic helper suits your salary offer. Do you want to input again? (Y/N)");
-                    if (Console.ReadLine().ToUpper() != "Y") return;
+                    if (Console.ReadLine().ToUpper() != "Y") return false;
                     else continue;
                 }
                 Console.WriteLine("Input the number of requirements: ");
@@ -80,7 +80,7 @@ namespace ConsoleApp1
                 if (!filteredBySkills.Any())
                 {
                     Console.WriteLine("No domestic helper has all the required skills. Do you want to input again? (Y/N)");
-                    if (Console.ReadLine().ToUpper() != "Y") return;
+                    if (Console.ReadLine().ToUpper() != "Y") return false;
                     else continue;
                 }
 
@@ -90,17 +90,17 @@ namespace ConsoleApp1
                 if (!filteredByLocation.Any())
                 {
                     Console.WriteLine("No domestic helper is in the desired location. Do you want to input again? (Y/N)");
-                    if (Console.ReadLine().ToUpper() != "Y") return;
+                    if (Console.ReadLine().ToUpper() != "Y") return false;
                     else continue;
                 }
 
                 Console.WriteLine("Input work mode (P: Part-time/ F: Full-time): ");
                 string workMode = Console.ReadLine().ToLower();
-                var filteredStaff = filteredByLocation.Where(helper => helper.GetWorkMode().ToString().ToLower() == workMode);
+                filteredStaff = filteredByLocation.Where(helper => helper.GetWorkMode().ToString().ToLower() == workMode);
                 if (!filteredStaff.Any())
                 {
                     Console.WriteLine("No domestic helper suits your work mode. Do you want to input again? (Y/N)");
-                    if (Console.ReadLine().ToUpper() != "Y") return;
+                    if (Console.ReadLine().ToUpper() != "Y") return false;
                     else continue;
                 }
 
@@ -111,7 +111,9 @@ namespace ConsoleApp1
                 }
                 continueFiltering = false;
             }
+            return true;
         }
+
         DomesticHelper searchIDHelper(string id)
         {
             foreach (DomesticHelper d in listHelper)
