@@ -19,11 +19,11 @@ namespace ConsoleApp1
         }
         public ShortTermContractByApp(Employer employer, DomesticHelper domesticHelper) : base(employer, domesticHelper)
         {
-            setupContract();
+            SetupContract();
         }
-        public override void printContract()
+        public override void PrintContract()
         {
-            base.printContract();
+            base.PrintContract();
             Console.WriteLine("Article 1: Term and contract work");
             Console.WriteLine("1. Type of labor contract: Labor contract with a term of " + this.duration + " days");
             Console.WriteLine("2. Since " + this.startDate.ToShortDateString() + " to " + this.endDate.ToShortDateString());
@@ -36,12 +36,12 @@ namespace ConsoleApp1
             Console.WriteLine("2. Bonus regime: Hihihi");
             Console.WriteLine("------------------------------------------- END -------------------------------------------");
         }
-        public override void setupContract()
+        public override void SetupContract()
         {
-            base.setupContract();
+            base.SetupContract();
             Console.WriteLine("Input hours per day: ");
             this.hourPerDay = float.Parse(Console.ReadLine());
-            Console.WriteLine("Input duration (days): ");
+            Console.WriteLine("Input duration (day): ");
             this.duration = int.Parse(Console.ReadLine());
             DateTime d = DateTime.Now;
             this.startDate = d;

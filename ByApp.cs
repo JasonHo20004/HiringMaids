@@ -7,10 +7,10 @@ using System.Threading.Tasks;
 
 namespace ConsoleApp1
 {
-    internal class ByApp
+    internal class ByApp : Hiring
     {
         // Attributes
-        List<DomesticHelper> listHelper = ListHelper.ImportData();
+        List<DomesticHelper> listHelper = Data.ImportHelperData();
         Employer employer;
         // Constructor
         public ByApp(Employer employer)
@@ -20,18 +20,6 @@ namespace ConsoleApp1
         }
         // Methods 
 
-        //public void createData()
-        //{
-        //    listHelper = new List<DomesticHelper>();
-
-        //    DomesticHelper staff1 = new DomesticHelper("052204007418", "Dat", "0123", "Quan 1", "24/06/2004", 100, new List<string> { "cooking", "cleaning" }, "F", "DH01");
-
-        //    listHelper.Add(staff1);
-        //    DomesticHelper staff2 = new DomesticHelper("052204007418", "Vu", "0123", "Quan 2", "24/06/2004", 100, new List<string> { "cooking" }, "P", "DH02");
-        //    listHelper.Add(staff2);
-        //    DomesticHelper staff3 = new DomesticHelper("052204007418", "Loc", "0123", "Thu Duc", "24/06/2004", 100, new List<string> { "cooking", "taking care of child" }, "P", "DH03");
-        //    listHelper.Add(staff3);
-        //}
         public void printListDomesticHelper()
         {
             Console.WriteLine("-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
@@ -40,7 +28,7 @@ namespace ConsoleApp1
             foreach (DomesticHelper d in listHelper)
             {
                 Console.WriteLine("{0,-10} | {1,-15} | {2,-15} | {3,-15} | {4,-15} | {5, -15} | {6, -15} | {7, -15} | {8, -15}",
-                    d.getMaidID(), d.getName(), d.getID(), d.getDob().ToShortDateString(), d.getPhoneNumber(), d.getAddress(), d.GetWorkMode(), d.getSalaryOffer(), d.GetSkills());
+                    d.getMaidID(), d.GetName(), d.getID(), d.getDob().ToShortDateString(), d.getPhoneNumber(), d.getAddress(), d.GetWorkMode(), d.getSalaryOffer(), d.GetSkills());
             }
             Console.WriteLine("-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
         }
@@ -48,7 +36,7 @@ namespace ConsoleApp1
         public void inputSalaryOffer()
         {
             float x = float.Parse(Console.ReadLine());
-            this.employer.setSalaryOffer(x);
+            this.employer.SetSalaryOffer(x);
         }
 
         public void filterDomesticHelper()
@@ -59,7 +47,7 @@ namespace ConsoleApp1
             {
                 Console.WriteLine("Input offer salary: ");
                 inputSalaryOffer();
-                var filteredBySalary = listHelper.Where(helper => helper.getSalaryOffer() <= employer.getSalaryOffer());
+                var filteredBySalary = listHelper.Where(helper => helper.getSalaryOffer() <= employer.GetSalaryOffer());
                 if (!filteredBySalary.Any())
                 {
                     Console.WriteLine("No domestic helper suits your salary offer. Do you want to input again? (Y/N)");
@@ -107,7 +95,7 @@ namespace ConsoleApp1
                 Console.WriteLine("======== Filtered Domestic Helpers ========");
                 foreach (var helper in filteredStaff)
                 {
-                    helper.printInfoOnRow();
+                    helper.PrintInfoOnRow();
                 }
                 continueFiltering = false;
             }
@@ -120,7 +108,7 @@ namespace ConsoleApp1
             }
             return null;
         }
-        public void signContract()
+        public override void SignContract()
         {
             Console.Write("Input the Helper's ID: ");
             string maidID = Console.ReadLine();
@@ -129,7 +117,7 @@ namespace ConsoleApp1
             if (d != null)
             {
                 Console.WriteLine("Are you sure you want to hire this person? ( Y/N ?)");
-                d.printInforInColumn();
+                d.PrintInforInColumn();
                 string s = Console.ReadLine();
                 s = s.ToUpper();
                 if (s == "Y")
@@ -140,24 +128,17 @@ namespace ConsoleApp1
                         LongtermContractByApp l = new LongtermContractByApp(this.employer, d);
                         this.employer.ListContract.Add(l);
                         d.ListContracts.Add(l);
-                        l.printContract();
+                        l.PrintContract();
                     }
                     else
                     {
                         ShortTermContractByApp l = new ShortTermContractByApp(this.employer, d);
                         this.employer.ListContract.Add(l);
                         d.ListContracts.Add(l);
-                        l.printContract();
+                        l.PrintContract();
                     }
                 }
             }
-        }
-        public void setupContract()
-        {
-            Console.Write("Describe detail tasks: ");
-            string s = Console.ReadLine();
-            Console.Write("Input location: ");
-            string l = Console.ReadLine();
         }
     }
 }

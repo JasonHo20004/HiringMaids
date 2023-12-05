@@ -29,6 +29,22 @@ namespace ConsoleApp1
             this.dob = DateTime.ParseExact(dob, format, CultureInfo.InvariantCulture);
         }
         // Methods
+        public string getPhoneNumber()
+        {
+            return this.phoneNumber;
+        }
+        public string getAddress()
+        {
+            return this.address;
+        }
+        public DateTime getDob()
+        {
+            return this.dob;
+        }
+        public string getID()
+        {
+            return this.id;
+        }
         public virtual string toString()
         {
             string info = $"Name: {name}\t";
@@ -36,17 +52,16 @@ namespace ConsoleApp1
             info += $"ID: {this.id} \t";
             info += $"Phone Number: {phoneNumber}\t";
             info += $"Address: {address} \t";
-
             return info;
         }
         
-        public virtual void printInfoOnRow()
+        public virtual void PrintInfoOnRow()
         {
             Console.WriteLine(toString());
         }
         
 
-        public void printInforInColumn()
+        public void PrintInforInColumn()
         {
             Console.WriteLine("----------------------------");
             Console.WriteLine($"{"Name:",-15} | {this.name}");
@@ -56,7 +71,7 @@ namespace ConsoleApp1
             Console.WriteLine($"{"Address:",-15} | {this.address}");
             Console.WriteLine("----------------------------\n");
         }
-        public string getName()
+        public string GetName()
         {
             return this.name;
         }

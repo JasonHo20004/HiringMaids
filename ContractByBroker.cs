@@ -12,30 +12,19 @@ namespace ConsoleApp1
         protected Broker brokers;
         public ContractByBroker(DateTime startDate, DateTime endDate, int duration, Employer employer, DomesticHelper domesticHelper, string workDescription, string location, Broker broker) : base(startDate, endDate, duration, employer, domesticHelper, workDescription, location)
         {
-          this.brokers = broker;
+            this.brokers = broker;
         }
         public ContractByBroker(Employer employer, DomesticHelper domesticHelper, Broker broker) : base(employer, domesticHelper)
         {
-            
+
             this.brokers = broker;
 
         }
-        public override void printContract()
+        public override void PrintContract()
         {
-            Console.WriteLine("----------------------------- LABOR CONTRACT FOR HIRE MAID -----------------------------");
-            Console.WriteLine("Party A - Employer ");
-            this.employer.printInforInColumn();
-            Console.WriteLine("Party B - Domestic Helper ");
-            this.domesticHelper.printInforInColumn();
+            base.PrintContract();
             Console.WriteLine("Party C - Broker ");
-            this.brokers.printInforInColumn();
-        }
-        public override void setupContract()
-        {
-            Console.Write("Describe detail tasks: ");
-            this.workDescription = Console.ReadLine();
-            Console.Write("Input location: ");
-            this.location = Console.ReadLine();
-        }
+            this.brokers.PrintInforInColumn();
+        }  
     }
 }

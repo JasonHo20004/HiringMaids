@@ -30,18 +30,18 @@ namespace ConsoleApp1
             this.location = location;
             this.workDescription = workDescription;
         }
-        public Contract(DateTime startDate, DateTime endDate, Employer employer, DomesticHelper domesticHelper, string workDescription, string location)
-        {
+        //public Contract(DateTime startDate, DateTime endDate, Employer employer, DomesticHelper domesticHelper, string workDescription, string location)
+        //{
 
-            this.status = true;
-            this.domesticHelper = domesticHelper;
-            this.employer = employer;
-            this.startDate = startDate;
-            this.endDate = endDate;
-            this.location = location;
-            this.workDescription = workDescription;
+        //    this.status = true;
+        //    this.domesticHelper = domesticHelper;
+        //    this.employer = employer;
+        //    this.startDate = startDate;
+        //    this.endDate = endDate;
+        //    this.location = location;
+        //    this.workDescription = workDescription;
             
-        }
+        //}
         public Contract(Employer employer, DomesticHelper domesticHelper)
         {
             this.employer = employer;
@@ -49,15 +49,15 @@ namespace ConsoleApp1
             this.status = true;
         }
         // Methods
-        public virtual void printContract()
+        public virtual void PrintContract()
         {
             Console.WriteLine("----------------------------- LABOR CONTRACT FOR HIRE MAID -----------------------------");
             Console.WriteLine("Party A - Employer ");
-            this.employer.printInforInColumn();
+            this.employer.PrintInforInColumn();
             Console.WriteLine("Party B - Domestic Helper ");
-            this.domesticHelper.printInforInColumn();
+            this.domesticHelper.PrintInforInColumn();
         }
-        public virtual void setupContract()
+        public virtual void SetupContract()
         {
             Console.Write("Describe detail tasks: ");
             this.workDescription = Console.ReadLine();

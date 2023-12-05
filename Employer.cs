@@ -14,7 +14,7 @@ namespace ConsoleApp1
         private string bonusRegime;
         //public List<DomesticHelper> hireHistory = new List<DomesticHelper>();
         public List<Rating> ratingHistory;
-        public List<Contract> ListContract; 
+        public List<Contract> ListContract;
         private string eID;
 
         // Constructor
@@ -24,20 +24,20 @@ namespace ConsoleApp1
             this.eID = eID;
         }
         // Methods
-        public void setSalaryOffer(float x)
+        public void SetSalaryOffer(float x)
         {
             this.salaryOffer = x;
         }
-        public float getSalaryOffer()
+        public float GetSalaryOffer()
         {
             return this.salaryOffer;
         }
-        public void addRequirement(List<string> T)
+        public void AddRequirement(List<string> T)
         {
             this.requirements.Clear();
             this.requirements.AddRange(T);
         }
-        public List<string> getListRequirements()
+        public List<string> GetListRequirements()
         {
             return this.requirements;
         }
@@ -45,12 +45,8 @@ namespace ConsoleApp1
         {
             string id = " E_ID: " + this.eID + "\t";
             string info = base.toString();
-            return id+info;
+            return id + info;
         }
-        //public void AddHireHistory(DomesticHelper helper)
-        //{
-        //    this.hireHistory.Add(helper);
-        //}
         public void DisplayHireHistory()
         {
             foreach (Contract c in this.ListContract)
@@ -80,7 +76,7 @@ namespace ConsoleApp1
             Console.WriteLine($"{"ID:",-15} | {this.id}");
             Console.WriteLine($"{"Date of birth:",-15} | {this.dob.ToShortDateString()}");
             Console.WriteLine($"{"Phone number:",-15} | {this.phoneNumber}");
-            Console.WriteLine($"{"Address:",-15} | {this.address}");                 
+            Console.WriteLine($"{"Address:",-15} | {this.address}");
         }
         public void DisplayListContract()
         {
@@ -88,13 +84,11 @@ namespace ConsoleApp1
             int i = 0;
             foreach (Contract c in this.ListContract)
             {
-               
-                    i++;
-                    DomesticHelper d = c.GetDomesticHelper();
-                    Console.Write(i + "\t" + d.getName()+"\t"+c.GetStartDate().ToShortDateString()+"\t");
+                i++;
+                DomesticHelper d = c.GetDomesticHelper();
+                Console.Write(i + "\t" + d.GetName() + "\t" + c.GetStartDate().ToShortDateString() + "\t");
                 if (c.GetStatus() == true) Console.WriteLine("Valid");
                 else Console.WriteLine("Expired");
-
             }
         }
         public void CancelContract()
@@ -103,7 +97,7 @@ namespace ConsoleApp1
             Console.Write("Enter: ");
             int input = int.Parse(Console.ReadLine());
             var c = this.ListContract[input - 1];
-            c.printContract();
+            c.PrintContract();
             Console.WriteLine("Do you want to cancel this contract ? (Y/N)");
             string s = Console.ReadLine();
             s = s.ToUpper();

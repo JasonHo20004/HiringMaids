@@ -9,7 +9,6 @@ namespace ConsoleApp1
     internal class Broker : Person
     {
         List<DomesticHelper> listHelper;
-        List<Broker> brokers;
         double commission;
         string brokerID; // Broker ID để employee chọn
 
@@ -24,18 +23,12 @@ namespace ConsoleApp1
         {
             return this.listHelper;
         }
-        public void AddBroker(Broker broker)
-        {
-            brokers.Add(broker);
-        }
+
         public string GetBrokerId()
         {
             return this.brokerID;
         }
-        public Broker SelectBroker(string brokerId)
-        {
-            return brokers.FirstOrDefault(broker => broker.GetBrokerId() == brokerId);
-        }
+
 
         public void ShowHelpers()
         {
@@ -45,10 +38,7 @@ namespace ConsoleApp1
             foreach (DomesticHelper helper in listHelper)
             {
                 string text = String.Format("{0,-10} | {1,-15} | {2,-15} | {3,-15} | {4,-15} | {5, -15} | {6, -15} | {7, -15} | {8, -15}",
-                    helper.getMaidID(), helper.getName(), helper.getID(), helper.getDob().ToShortDateString(), helper.getPhoneNumber(), helper.getAddress(), helper.GetWorkMode(), helper.getSalaryOffer(), helper.GetSkills());
-                //Console.Write("{0,-10} | {1,-15} | {2,-15} | {3,-15} | {4,-15} | {5, -15} | {6, -15} | {7, -15} | {8, -15}",
-                //    helper.getMaidID(), helper.getName(), helper.getID(), helper.getDob().ToShortDateString(), helper.getPhoneNumber(), helper.getAddress(), helper.GetWorkMode(), helper.getSalaryOffer(), helper.GetSkills());
-                //Console.WriteLine();
+                    helper.getMaidID(), helper.GetName(), helper.getID(), helper.getDob().ToShortDateString(), helper.getPhoneNumber(), helper.getAddress(), helper.GetWorkMode(), helper.getSalaryOffer(), helper.GetSkills());
                 Console.WriteLine(text);
             }
             Console.WriteLine("--------------------------------------------------------------------------------------------------------------------------------------------------------------------");
@@ -65,10 +55,8 @@ namespace ConsoleApp1
 
         public override string toString()
         {
-            string info = $"Name: {name}\t";
-            info += $"Broker's ID: {brokerID}\t";
-            info += $"Date of Birth: {dob.ToShortDateString()} \t";
-            info += $"Phone Number: {phoneNumber}\t";
+            string info= $"Broker's ID: {brokerID}\t";
+            info = info + base.toString();
             info += $"Commission: {commission}\t";
             return info;
         }

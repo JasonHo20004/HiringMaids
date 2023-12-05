@@ -1,9 +1,0 @@
-07220400025 # Ho Thanh Dat # 0961826304 # 01 Vo Van Ngan # 26/03/2004 # 100 # cooking, cleaning # F # DH01
-07220400026 # Nguyen Thi Mai # 0987654321 # 02 Nguyen Van Linh # 15/06/1990 # 1200 # baking, communication # F # DH02
-07220400027 # Le Van An # 0912345678 # 03 Tran Phu # 10/11/1985 # 800 # cooking, babysister # P # PT01
-07220400028 # Pham Thi Huong # 0978123456 # 04 Hoang Dieu # 03/09/1995 # 900 # elderly care, cleaning # F # DH03
-07220400029 # Tran Van Long # 0965432187 # 05 Le Loi # 22/07/1988 # 1100 # driving, cleaning # F # DH04
-07220400030 # Nguyen Van Hieu # 0909876543 # 06 Vo Thi Sau # 18/04/2000 # 950 # cooking, gardening # P # PT02
-07220400031 # Hoang Thi Thuy # 0956781234 # 07 Phan Dang Luu # 12/02/1982 # 1000 # elderly care, cleaning # F # DH05
-07220400032 # Bui Van Phuc # 0943216789 # 08 Nguyen Trai # 25/01/1993 # 850 # babysister, gardening # P # PT03
-07220400033 # Mai Van Truong # 0932109876 # 09 Le Thanh Ton # 30/08/1975 # 1300 # communication, baking # F # DH06

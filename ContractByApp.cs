@@ -35,35 +35,21 @@ namespace ConsoleApp1
             this.workDescription = workDescription;
 
         }
-
         public ContractByApp(Employer employer, DomesticHelper domesticHelper) : base(employer,domesticHelper)
         {          
         }
         // Methods
-        public override void printContract()
-        {
-            Console.WriteLine("----------------------------- LABOR CONTRACT FOR HIRE MAID -----------------------------");
-            Console.WriteLine("Party A - Employer ");
-            this.employer.printInforInColumn();
-            Console.WriteLine("Party B - Domestic Helper ");
-            this.domesticHelper.printInforInColumn();
-        }
+       
 
-        public virtual void printContract()
-        {
-            Console.WriteLine("----------------------------- LABOR CONTRACT FOR HIRE MAID -----------------------------");
-            Console.WriteLine("Party A - Employer ");
-            this.employer.printInforInColumn();
-            Console.WriteLine("Party B - Domestic Helper ");
-            this.domesticHelper.printInforInColumn();
-        }
+        //public virtual void PrintContract()
+        //{
+        //    Console.WriteLine("----------------------------- LABOR CONTRACT FOR HIRE MAID -----------------------------");
+        //    Console.WriteLine("Party A - Employer ");
+        //    this.employer.PrintInforInColumn();
+        //    Console.WriteLine("Party B - Domestic Helper ");
+        //    this.domesticHelper.PrintInforInColumn();
+        //}
 
-        public override void setupContract()
-        {
-            Console.Write("Describe detail tasks: ");
-            this.workDescription = Console.ReadLine();
-            Console.Write("Input location: ");
-            this.location = Console.ReadLine();
-        }
+       
     }
 }

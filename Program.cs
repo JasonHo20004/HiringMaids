@@ -13,7 +13,7 @@ namespace ConsoleApp1
             //a.printListDomesticHelper();
             ////a.filterDomesticHelper();
             //a.signContract();
-            ////a.setupContract();
+            ////a.SetupContract();
             //a.signContract();
             //employer.DisplayHireHistory();
             //employer.CancelContract();
@@ -21,7 +21,7 @@ namespace ConsoleApp1
             //employer.FeedBackHelper();
             //employer.SeeRating();
             //ByBroker b = new ByBroker(employer);
-            //b.SelectBrokerAndHelper();
+            //b.SignContract();
             //a.filterDomesticHelper();
             //Console.WriteLine(employer.ListContract.Count());
             //a.signContract();

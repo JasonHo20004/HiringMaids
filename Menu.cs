@@ -133,7 +133,7 @@ namespace ConsoleApp1
         //                            {
         //                                case (int)EOptions.Option1:
         //                                    Console.Clear();
-        //                                    b.SelectBrokerAndHelper();
+        //                                    b.SignContract();
         //                                    Console.WriteLine("Do you want to return previous menu? (Y/N)");
         //                                    key = Char.ToLower(Console.ReadKey().KeyChar);
         //                                    if (key == 'y')
@@ -234,6 +234,7 @@ namespace ConsoleApp1
 
         public void DoMenu()
         {
+
             Employer employer = new Employer("052204007418", "Huy", "0123", "HCM", "24/06/2004", "E01");
             ByApp a = new ByApp(employer);
             ByBroker b = new ByBroker(employer);
@@ -275,7 +276,7 @@ namespace ConsoleApp1
                                     case 2:
                                         {
                                             a.filterDomesticHelper();
-                                            a.signContract();
+                                            a.SignContract();
                                             break;
                                         }
                                 }
@@ -311,7 +312,7 @@ namespace ConsoleApp1
                                         }
                                     case 2:
                                         {
-                                            b.SelectBrokerAndHelper();
+                                            b.SignContract();
                                             break;
                                         }                                     
                                 }

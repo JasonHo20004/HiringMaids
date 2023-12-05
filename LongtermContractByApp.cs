@@ -21,11 +21,11 @@ namespace ConsoleApp1
         {
 
             this.duration = 6;
-            setupContract();
+            base.SetupContract();
         }
-        public override void printContract()
+        public override void PrintContract()
         {
-            base.printContract();
+            base.PrintContract();
             Console.WriteLine("Article 1: Term and contract work");
             Console.WriteLine(". Type of labor contract: Labor contract with a term of " + this.duration + " months");
             Console.WriteLine(". Since " + this.startDate.ToShortDateString() + " to " + this.endDate.ToShortDateString());
@@ -40,7 +40,7 @@ namespace ConsoleApp1
         }
         public void SetupContract()
         {
-            base.setupContract();
+            base.SetupContract();
             DateTime d = DateTime.Now;
             this.startDate = d;
             this.endDate = d.AddMonths(this.duration);

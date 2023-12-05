@@ -19,6 +19,7 @@ namespace ConsoleApp1
             this.comment = comment;
         }
         public Rating() { }
+        //Methods
         public void InputRating()
         {
             DateTime d = DateTime.Now;
@@ -37,6 +38,6 @@ namespace ConsoleApp1
             Console.WriteLine("Comment: "+this.comment);
             Console.WriteLine("**********************************");
         }
-        //Methods
+        
     }
 }

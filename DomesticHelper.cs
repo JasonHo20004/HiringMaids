@@ -36,25 +36,9 @@ namespace ConsoleApp1
         public string getMaidID()
         {
             return this.maidID;
-        }
-
-     
-        public string getPhoneNumber()
-        {
-            return this.phoneNumber;
-        }
-        public string getAddress()
-        {
-            return this.address;
-        }
-        public DateTime getDob()
-        {
-            return this.dob;
-        }
-        public string getID()
-        {
-            return this.id;
-        }
+        }     
+       
+       
         public string GetSkills()
         {
             string s = "";
@@ -62,9 +46,7 @@ namespace ConsoleApp1
             {
                 s = s + i;
                 s = s + ", ";
-            }
-            //s= s.TrimEnd(' ');
-            //s = s.TrimEnd(',');
+            }            
             return s;
         }
         public bool HasSkill(string skill)
@@ -125,8 +107,8 @@ namespace ConsoleApp1
         }
         public override string toString()
         {
-            string id = $"Maid ID: {this.maidID}\t";
             string info = base.toString();
+            string id = $"Maid ID: {this.maidID}\t";           
             id = id + info;
             return id;
         }
