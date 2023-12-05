@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Net;
 using System.Text;
@@ -14,19 +15,19 @@ namespace ConsoleApp1
         protected string name;
         protected string phoneNumber;
         protected string address;
-        string id;
+        protected string id;
         protected DateTime dob;
 
         //Constructor
-        public Person(string id, string name, string phoneNumber, string address, DateTime dob)
+        public Person(string id, string name, string phoneNumber, string address, string dob)
         {
+            string format = "dd/MM/yyyy";
             this.id = id;
             this.name = name;
             this.phoneNumber = phoneNumber;
             this.address = address;
-            this.dob = dob;
+            this.dob = DateTime.ParseExact(dob, format, CultureInfo.InvariantCulture);
         }
-        public Person() { }
         // Methods
         public virtual string toString()
         {
@@ -38,19 +39,28 @@ namespace ConsoleApp1
 
             return info;
         }
+        
         public virtual void printInfoOnRow()
         {
             Console.WriteLine(toString());
         }
+        
 
-        public virtual void printInforInColumn()
+        public void printInforInColumn()
         {
-            Console.WriteLine("* Name: " + this.name);
-            Console.WriteLine("* ID: " + this.id);
-            Console.WriteLine("* Date of birth: " + this.dob.ToShortDateString());
-            Console.WriteLine("* Phone number: " + this.phoneNumber);
-            Console.WriteLine("* Address: " + this.address);
+            Console.WriteLine("----------------------------");
+            Console.WriteLine($"{"Name:",-15} | {this.name}");
+            Console.WriteLine($"{"ID:",-15} | {this.id}");
+            Console.WriteLine($"{"Date of birth:",-15} | {this.dob.ToShortDateString()}");
+            Console.WriteLine($"{"Phone number:",-15} | {this.phoneNumber}");
+            Console.WriteLine($"{"Address:",-15} | {this.address}");
+            Console.WriteLine("----------------------------\n");
         }
+        public string getName()
+        {
+            return this.name;
+        }
+
     }
 
 }

@@ -6,18 +6,18 @@ using System.Threading.Tasks;
 
 namespace ConsoleApp1
 {
-    internal class ShorttermContract : Contract
+    internal class ShortTermContractByApp : ContractByApp
     {
         protected float hourPerDay;
 
-        public ShorttermContract(DateTime startDate, DateTime endDate, int duration, Employer employer, DomesticHelper domesticHelper, string workDescription, string location, float hourPerDay) : base(startDate, endDate, duration, employer, domesticHelper, workDescription, location)
+        public ShortTermContractByApp(DateTime startDate, DateTime endDate, int duration, Employer employer, DomesticHelper domesticHelper, string workDescription, string location, float hourPerDay) : base(startDate, endDate, duration, employer, domesticHelper, workDescription, location)
         {
         }
-        public ShorttermContract(DateTime startDate, DateTime endDate, Employer employer, DomesticHelper domesticHelper, string workDescription, string location, float hourPerDay) : base(startDate, endDate, employer, domesticHelper, workDescription, location)
+        public ShortTermContractByApp(DateTime startDate, DateTime endDate, Employer employer, DomesticHelper domesticHelper, string workDescription, string location, float hourPerDay) : base(startDate, endDate, employer, domesticHelper, workDescription, location)
         {
 
         }
-        public ShorttermContract(Employer employer, DomesticHelper domesticHelper):base(employer, domesticHelper)
+        public ShortTermContractByApp(Employer employer, DomesticHelper domesticHelper) : base(employer, domesticHelper)
         {
             setupContract();
         }
