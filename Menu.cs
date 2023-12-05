@@ -41,354 +41,242 @@ namespace ConsoleApp1
         MainMenu,
         AppMenu,
         BrokerMenu,
-        ContractMenu
+        ContractMenu,
+        RatingMenu
     }
 
     internal class Menu
     {
         //Tạo người thuê
-        //static Employer myEmployer1 = new Employer("052204007418", "Nguyen Van Vu", "0123", "01 Vo Van Ngan", "24/06/2004", "E01");
-        //static Employer myEmployer2 = new Employer("072204000255", "Ho Thanh Dat", "0123", "02 Vo Van Ngan", "24/03/2004", "E02");
+        static Employer myEmployer1 = new Employer("052204007418", "Nguyen Van Vu", "0123", "01 Vo Van Ngan", "24/06/2004", "E01");
 
-        ////Tạo đối tượng thuê bằng app
-        //ByApp a = new ByApp(myEmployer1);
+        //Tạo đối tượng thuê bằng app
+        ByApp a = new ByApp(myEmployer1);
 
-        ////Tạo đối tượng thuê bằng người môi giới
-        //ByBroker b = new ByBroker(myEmployer2);
+        //Tạo đối tượng thuê bằng người môi giới
+        ByBroker b = new ByBroker(myEmployer1);
 
-        //public void StartMenu()
-        //{
-        //    int option = 20000;
-        //    EMenu currentMenu = EMenu.MainMenu;
-        //    char key;
+        //Tao danh gia
+        Rating c = new Rating();
 
-        //    while (true)
-        //    {
-        //        Console.Clear();
-        //        Console.WriteLine("============== HIRING MAID ==============");
-        //        PrintMenu(currentMenu, option);
-        //        ConsoleKeyInfo keyInfo = Console.ReadKey(true);
-
-        //        while (true)
-        //        {
-        //            switch (keyInfo.Key)
-        //            {
-        //                case ConsoleKey.Enter:
-        //                    switch (currentMenu)
-        //                    {
-        //                        case EMenu.MainMenu:
-        //                            switch (option % GetMenuOptions(currentMenu).Length)
-        //                            {
-        //                                case (int)EOptions.Option1:
-        //                                    currentMenu = EMenu.AppMenu;
-        //                                    break;
-        //                                case (int)EOptions.Option2:
-        //                                    currentMenu = EMenu.BrokerMenu;
-        //                                    break;
-        //                                case (int)EOptions.Option3:
-        //                                    currentMenu = EMenu.ContractMenu;
-        //                                    break;
-        //                                case (int)EOptions.Option4:
-        //                                    Exit();
-        //                                    break;
-        //                            }
-        //                            break;
-        //                        case EMenu.AppMenu:
-        //                            switch (option % GetMenuOptions(currentMenu).Length)
-        //                            {
-        //                                case (int)EOptions.Option1:
-        //                                    Console.Clear();
-        //                                    a.printListDomesticHelper();
-        //                                    Console.WriteLine("Do you want to return previous menu? (Y/N)");
-        //                                    key = Char.ToLower(Console.ReadKey().KeyChar);
-        //                                    if (key == 'y')
-        //                                    {
-        //                                        break;
-        //                                    }
-        //                                    else
-        //                                    {   
-        //                                        continue;
-        //                                    }
-        //                                case (int)EOptions.Option2:
-        //                                    Console.Clear();
-        //                                    a.filterDomesticHelper();
-        //                                    a.signContract();
-        //                                    Console.WriteLine("Do you want to return previous menu? (Y/N)");
-        //                                    key = Char.ToLower(Console.ReadKey().KeyChar);
-        //                                    if (key == 'y')
-        //                                    {
-        //                                        break;
-        //                                    }
-        //                                    else
-        //                                    {
-        //                                        continue;
-        //                                    }
-        //                                case (int)EOptions.Option3:
-        //                                    currentMenu = EMenu.MainMenu;
-        //                                    break;
-        //                            }
-        //                            break;
-        //                        case EMenu.BrokerMenu:
-        //                            switch (option % GetMenuOptions(currentMenu).Length)
-        //                            {
-        //                                case (int)EOptions.Option1:
-        //                                    Console.Clear();
-        //                                    b.SignContract();
-        //                                    Console.WriteLine("Do you want to return previous menu? (Y/N)");
-        //                                    key = Char.ToLower(Console.ReadKey().KeyChar);
-        //                                    if (key == 'y')
-        //                                    {
-        //                                        break;
-        //                                    }
-        //                                    else
-        //                                    {
-        //                                        continue;
-        //                                    }
-        //                                case (int)EOptions.Option2:
-        //                                    currentMenu = EMenu.MainMenu;
-        //                                    break;
-        //                            }
-        //                            break;
-        //                        case EMenu.ContractMenu:
-        //                            switch (option % GetMenuOptions(currentMenu).Length)
-        //                            {
-        //                                case (int)EOptions.Option1:
-        //                                    //Thêm method cho xem những bản hợp đồng
-        //                                    break;
-        //                                case (int)EOptions.Option2:
-        //                                    currentMenu = EMenu.MainMenu;
-        //                                    break;
-        //                            }
-        //                            break;
-        //                    }
-        //                    option = 0;
-        //                    break;
-        //                case ConsoleKey.UpArrow:
-        //                    option = (option - 1 + GetMenuOptions(currentMenu).Length) % GetMenuOptions(currentMenu).Length;
-        //                    break;
-        //                case ConsoleKey.DownArrow:
-        //                    option = (option + 1) % GetMenuOptions(currentMenu).Length;
-        //                    break;
-        //                case ConsoleKey.Escape:
-        //                    Exit();
-        //                    break;
-        //            }
-
-        //            if (currentMenu != EMenu.None)
-        //            {
-        //                Console.Clear();
-        //                PrintMenu(currentMenu, option);
-        //                break;
-        //            }
-        //        }
-
-        //        void PrintMenu(EMenu type, int option)
-        //        {
-        //            string[] options = GetMenuOptions(type);
-
-        //            for (int i = 0; i < options.Length; i++)
-        //            {
-        //                if (i == option % options.Length)
-        //                {
-        //                    Console.ForegroundColor = ConsoleColor.Black;
-        //                    Console.BackgroundColor = ConsoleColor.White;
-        //                    Console.WriteLine($"\t> {options[i]}");
-        //                    Console.ResetColor();
-        //                }
-        //                else
-        //                {
-        //                    Console.WriteLine($"\t{options[i]}");
-        //                }
-        //            }
-        //        }
-
-        //        string[] GetMenuOptions(EMenu type)
-        //        {
-        //            switch (type)
-        //            {
-        //                case EMenu.MainMenu:
-        //                    return new string[] { "1. Hiring maid by App.", "2. Hiring maid by Broker", "3. About Contract.", "4. Exit." };
-        //                case EMenu.AppMenu:
-        //                    return new string[] { "1. Show list of available Domestic Helper.", "2. Insert your requirement.", "3. Return to main menu." };
-        //                case EMenu.BrokerMenu:
-        //                    return new string[] { "1. Show list of available Broker.", "2. Return to main menu." };
-        //                case EMenu.ContractMenu:
-        //                    return new string[] { "1. Show available contracts.", "2. Return to main menu." };
-        //                default:
-        //                    return new string[0];
-        //            }
-        //        }
-
-        //    }
-        //    void Exit()
-        //    {
-        //        Console.WriteLine("Do you want to exit the program? (Y/N)");
-        //        char response = Char.ToLower(Console.ReadKey().KeyChar);
-
-        //        if (response == 'y')
-        //        {
-        //            Environment.Exit(0);
-        //        }
-        //    }
-        //}
-
-        public void DoMenu()
+        public void StartMenu()
         {
+            int option = 20000;
+            EMenu currentMenu = EMenu.MainMenu;
+            char key;
 
-            Employer employer = new Employer("052204007418", "Huy", "0123", "HCM", "24/06/2004", "E01");
-            ByApp a = new ByApp(employer);
-            ByBroker b = new ByBroker(employer);
-            bool flag = true;
-            do
+            while (true)
             {
-                Console.WriteLine("1. By App");
-                Console.WriteLine("2. By Broker");
-                Console.WriteLine("3. Contracts");
-                Console.WriteLine("4. Rating");
-                Console.WriteLine("5. View Hire History");
-                Console.WriteLine("0. Exit");
-                Console.Write("Enter: ");
-                int n = int.Parse(Console.ReadLine());
-                switch (n)
+                Console.Clear();
+                Console.WriteLine("============== HIRING MAID ==============");
+                PrintMenu(currentMenu, option);
+                ConsoleKeyInfo keyInfo = Console.ReadKey(true);
+
+                while (true)
                 {
-                    case 1:
-                        {
-                            bool flag1 = true;
-                            do
+                    switch (keyInfo.Key)
+                    {
+                        case ConsoleKey.Enter:
+                            switch (currentMenu)
                             {
-                                Console.WriteLine("1. View List Domestic Helper ");
-                                Console.WriteLine("2. Hire");
-                                Console.WriteLine("0. Back to main Menu");
-                                int n1 = int.Parse(Console.ReadLine());
-                                switch (n1)
-                                {
-                                    case 0:
-                                        {
-
-                                            flag1 = false; ;
+                                case EMenu.MainMenu:
+                                    switch (option % GetMenuOptions(currentMenu).Length)
+                                    {
+                                        case (int)EOptions.Option1:
+                                            currentMenu = EMenu.AppMenu;
                                             break;
-                                        }
-                                    case 1:
-                                        {
+                                        case (int)EOptions.Option2:
+                                            currentMenu = EMenu.BrokerMenu;
+                                            break;
+                                        case (int)EOptions.Option3:
+                                            currentMenu = EMenu.ContractMenu;
+                                            break;
+                                        case (int)EOptions.Option4:
+                                            Exit();
+                                            break;
+                                    }
+                                    break;
+                                case EMenu.AppMenu:
+                                    switch (option % GetMenuOptions(currentMenu).Length)
+                                    {
+                                        case (int)EOptions.Option1:
+                                            Console.Clear();
                                             a.printListDomesticHelper();
+                                            Console.WriteLine("Do you want to return previous menu? (Y/N)");
+                                            key = Char.ToLower(Console.ReadKey().KeyChar);
+                                            if (key == 'y')
+                                            {
+                                                break;
+                                            }
+                                            else
+                                            {
+                                                continue;
+                                            }
+                                        case (int)EOptions.Option2:
+                                            Console.Clear();
+                                            if (a.filterDomesticHelper())
+                                            {
+                                                a.signContract();
+                                                Console.WriteLine("Do you want to return previous menu? (Y/N)");
+                                                key = Char.ToLower(Console.ReadKey().KeyChar);
+                                                if (key == 'y')
+                                                {
+                                                    break;
+                                                }
+                                                else
+                                                {
+                                                    continue;
+                                                }
+                                            }
+                                            else
+                                            {
+                                                Console.WriteLine("No suitable domestic helper found. Returning to previous menu.");
+                                            }
                                             break;
-                                        }
-                                    case 2:
-                                        {
-                                            a.filterDomesticHelper();
-                                            a.SignContract();
+                                        case (int)EOptions.Option3:
+                                            Console.Clear();
+                                            c.InputRating();
+                                            Console.WriteLine("Do you want to return previous menu? (Y/N)");
+                                            key = Char.ToLower(Console.ReadKey().KeyChar);
+                                            if (key == 'y')
+                                            {
+                                                break;
+                                            }
+                                            else
+                                            {
+                                                continue;
+                                            }
+                                        case (int)EOptions.Option4:
+                                            currentMenu = EMenu.MainMenu;
                                             break;
-                                        }
-                                }
-                            }while (flag1==true);
+                                    }
+                                    break;
+                                case EMenu.BrokerMenu:
+                                    switch (option % GetMenuOptions(currentMenu).Length)
+                                    {
+                                        case (int)EOptions.Option1:
+                                            Console.Clear();
+                                            b.SelectBrokerAndHelper();
+                                            Console.WriteLine("Do you want to return previous menu? (Y/N)");
+                                            key = Char.ToLower(Console.ReadKey().KeyChar);
+                                            if (key == 'y')
+                                            {
+                                                break;
+                                            }
+                                            else
+                                            {
+                                                continue;
+                                            }
+                                        case (int)EOptions.Option2:
+                                            currentMenu = EMenu.MainMenu;
+                                            break;
+                                    }
+                                    break;
+                                case EMenu.ContractMenu:
+                                    switch (option % GetMenuOptions(currentMenu).Length)
+                                    {
+                                        case (int)EOptions.Option1:
+                                            //Thêm method cho xem những bản hợp đồng
+                                            Console.Clear();
+                                            myEmployer1.DisplayListContract();
+                                            Console.WriteLine("Do you want to return previous menu? (Y/N)");
+                                            key = Char.ToLower(Console.ReadKey().KeyChar);
+                                            if (key == 'y')
+                                            {
+                                                break;
+                                            }
+                                            else
+                                            {
+                                                continue;
+                                            }
+                                        case (int)EOptions.Option2:
+                                            myEmployer1.CancelContract();
+                                            Console.WriteLine("Do you want to return previous menu? (Y/N)");
+                                            key = Char.ToLower(Console.ReadKey().KeyChar);
+                                            if (key == 'y')
+                                            {
+                                                break;
+                                            }
+                                            else
+                                            {
+                                                continue;
+                                            }
+                                        case (int)EOptions.Option3:
+                                            currentMenu = EMenu.MainMenu;
+                                            break;
+                                    }
+                                    break;
+                            }
+                            option = 0;
                             break;
-                        }
-                    case 0:
-                        {
-                            flag = false;
+                        case ConsoleKey.UpArrow:
+                            option = (option - 1 + GetMenuOptions(currentMenu).Length) % GetMenuOptions(currentMenu).Length;
                             break;
-                        }
-                    case 2:
-                        {
-                            bool flag1 = true;
-                            do
-                            {
-                                Console.WriteLine("1. View List Broker ");
-                                Console.WriteLine("2. Hire");
-                                Console.WriteLine("0. Back to main Menu");
-                                int n1 = int.Parse(Console.ReadLine());
-                                switch (n1)
-                                {
-                                    case 0:
-                                        {
+                        case ConsoleKey.DownArrow:
+                            option = (option + 1) % GetMenuOptions(currentMenu).Length;
+                            break;
+                        case ConsoleKey.Escape:
+                            Exit();
+                            break;
+                    }
 
-                                            flag1 = false; ;
-                                            break;
-                                        }
-                                    case 1:
-                                        {
-                                            b.ShowListBroker();
-                                            break;
-                                        }
-                                    case 2:
-                                        {
-                                            b.SignContract();
-                                            break;
-                                        }                                     
-                                }
-                            } while (flag1 == true);
-                            break;
-                        }
-                    case 3:
-                        {
-                            bool flag1 = true;
-                            do
-                            {
-                                Console.WriteLine("1. View List Contract ");
-                                Console.WriteLine("2. Cancel Contract");
-                                Console.WriteLine("0. Back to main Menu");
-                                int n1 = int.Parse(Console.ReadLine());
-                                switch (n1)
-                                {
-                                    case 0:
-                                        {
+                    if (currentMenu != EMenu.None)
+                    {
+                        Console.Clear();
+                        PrintMenu(currentMenu, option);
+                        break;
+                    }
+                }
 
-                                            flag1 = false; ;
-                                            break;
-                                        }
-                                    case 1:
-                                        {
-                                            employer.DisplayListContract();
-                                            break;
-                                        }
-                                    case 2:
-                                        {
-                                            employer.CancelContract();
-                                            break;
-                                        }
-                                }
-                            } while (flag1 == true);
-                            break;
-                        }
-                    case 4:
-                        {
-                            bool flag1 = true;
-                            do
-                            {
-                                Console.WriteLine("1. View Rating ");
-                                Console.WriteLine("2. Write FeedBack");
-                                Console.WriteLine("0. Back to main Menu");
-                                int n1 = int.Parse(Console.ReadLine());
-                                switch (n1)
-                                {
-                                    case 0:
-                                        {
+                void PrintMenu(EMenu type, int option)
+                {
+                    string[] options = GetMenuOptions(type);
 
-                                            flag1 = false; ;
-                                            break;
-                                        }
-                                    case 1:
-                                        {
-                                            employer.SeeRating();
-                                            break;
-                                        }
-                                    case 2:
-                                        {
-                                            employer.FeedBackHelper();
-                                            break;
-                                        }
-                                }
-                            } while (flag1 == true);
-                            break;
-                        }
-                    case 5:
+                    for (int i = 0; i < options.Length; i++)
+                    {
+                        if (i == option % options.Length)
                         {
-                            employer.DisplayHireHistory();
-                            break;
+                            Console.ForegroundColor = ConsoleColor.Black;
+                            Console.BackgroundColor = ConsoleColor.White;
+                            Console.WriteLine($"\t> {options[i]}");
+                            Console.ResetColor();
                         }
+                        else
+                        {
+                            Console.WriteLine($"\t{options[i]}");
+                        }
+                    }
+                }
+
+                string[] GetMenuOptions(EMenu type)
+                {
+                    switch (type)
+                    {
+                        case EMenu.MainMenu:
+                            return new string[] { "1. Hiring maid by App.", "2. Hiring maid by Broker", "3. About Contract.", "4. Exit." };
+                        case EMenu.AppMenu:
+                            return new string[] { "1. Show list of available Domestic Helper.", "2. Insert your requirement.","3. Rating.", "4. Return to main menu." };
+                        case EMenu.BrokerMenu:
+                            return new string[] { "1. Show list of available Broker.", "2. Return to main menu." };
+                        case EMenu.ContractMenu:
+                            return new string[] { "1. Show available contracts.","2. Cancel Contract.", "3. Return to main menu." };
+                        default:
+                            return new string[0];
+                    }
+                }
+
+            }
+
+            void Exit()
+            {
+                Console.WriteLine("Do you want to exit the program? (Y/N)");
+                char response = Char.ToLower(Console.ReadKey().KeyChar);
+
+                if (response == 'y')
+                {
+                    Environment.Exit(0);
                 }
             }
-            while (flag == true);
         }
     }
 }
