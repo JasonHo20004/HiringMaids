@@ -10,26 +10,42 @@ namespace ConsoleApp1
     internal class ByApp
     {
         // Attributes
-        List<DomesticHelper> listHelper;
+        List<DomesticHelper> listHelper = ListHelper.ImportData();
         Employer employer;
+        private IEnumerable<DomesticHelper> filteredStaff;
         // Constructor
         public ByApp(Employer employer)
         {
-            createData();
+            //createData();
             this.employer = employer;
         }
-        // Methods
-        public void createData()
-        {
-            listHelper = new List<DomesticHelper>();
+        // Methods 
 
-            DomesticHelper staff1 = new DomesticHelper("052204007418", "Dat", "0123", "Quan 1", new DateTime(2023, 1, 1), 100, new List<string> { "cooking", "cleaning" }, 'F', "DH01");
-            listHelper.Add(staff1);
-            DomesticHelper staff2 = new DomesticHelper("052204007418", "Vu", "0123", "Quan 2", new DateTime(2023, 06, 24), 100, new List<string> { "cooking" }, 'P', "DH02");
-            listHelper.Add(staff2);
-            DomesticHelper staff3 = new DomesticHelper("052204007418", "Loc", "0123", "Thu Duc", new DateTime(2023, 1, 24), 100, new List<string> { "cooking", "taking care of child" }, 'P', "DH03");
-            listHelper.Add(staff3);
+        //public void createData()
+        //{
+        //    listHelper = new List<DomesticHelper>();
+
+        //    DomesticHelper staff1 = new DomesticHelper("052204007418", "Dat", "0123", "Quan 1", "24/06/2004", 100, new List<string> { "cooking", "cleaning" }, "F", "DH01");
+
+        //    listHelper.Add(staff1);
+        //    DomesticHelper staff2 = new DomesticHelper("052204007418", "Vu", "0123", "Quan 2", "24/06/2004", 100, new List<string> { "cooking" }, "P", "DH02");
+        //    listHelper.Add(staff2);
+        //    DomesticHelper staff3 = new DomesticHelper("052204007418", "Loc", "0123", "Thu Duc", "24/06/2004", 100, new List<string> { "cooking", "taking care of child" }, "P", "DH03");
+        //    listHelper.Add(staff3);
+        //}
+        public void printListDomesticHelper()
+        {
+            Console.WriteLine("-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
+            Console.WriteLine("{0,-10} | {1,-15} | {2,-15} | {3,-15} | {4,-15} | {5, -15} | {6, -15} | {7, -15} | {8, -15}", "Helper ID", "Name", "ID", "Date of Birth", "Phone Number", "Address", "WorkMode", "SalaryOffer", "Skills");
+            Console.WriteLine("-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
+            foreach (DomesticHelper d in listHelper)
+            {
+                Console.WriteLine("{0,-10} | {1,-15} | {2,-15} | {3,-15} | {4,-15} | {5, -15} | {6, -15} | {7, -15} | {8, -15}",
+                    d.getMaidID(), d.getName(), d.getID(), d.getDob().ToShortDateString(), d.getPhoneNumber(), d.getAddress(), d.GetWorkMode(), d.getSalaryOffer(), d.GetSkills());
+            }
+            Console.WriteLine("-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
         }
+        /*
         public void printListDomesticHelper()
         {
             foreach (DomesticHelper d in listHelper)
@@ -37,15 +53,15 @@ namespace ConsoleApp1
                 d.printInfoOnRow();
             }
         }
+        */
         public void inputSalaryOffer()
         {
             float x = float.Parse(Console.ReadLine());
             this.employer.setSalaryOffer(x);
         }
-
-        public void filterDomesticHelper()
+        
+        public bool filterDomesticHelper()
         {
-            
             bool continueFiltering = true;
             while (continueFiltering)
             {
@@ -55,7 +71,7 @@ namespace ConsoleApp1
                 if (!filteredBySalary.Any())
                 {
                     Console.WriteLine("No domestic helper suits your salary offer. Do you want to input again? (Y/N)");
-                    if (Console.ReadLine().ToUpper() != "Y") return;
+                    if (Console.ReadLine().ToUpper() != "Y") return false;
                     else continue;
                 }
                 Console.WriteLine("Input the number of requirements: ");
@@ -72,7 +88,7 @@ namespace ConsoleApp1
                 if (!filteredBySkills.Any())
                 {
                     Console.WriteLine("No domestic helper has all the required skills. Do you want to input again? (Y/N)");
-                    if (Console.ReadLine().ToUpper() != "Y") return;
+                    if (Console.ReadLine().ToUpper() != "Y") return false;
                     else continue;
                 }
 
@@ -82,17 +98,17 @@ namespace ConsoleApp1
                 if (!filteredByLocation.Any())
                 {
                     Console.WriteLine("No domestic helper is in the desired location. Do you want to input again? (Y/N)");
-                    if (Console.ReadLine().ToUpper() != "Y") return;
+                    if (Console.ReadLine().ToUpper() != "Y") return false;
                     else continue;
                 }
 
                 Console.WriteLine("Input work mode (P: Part-time/ F: Full-time): ");
                 string workMode = Console.ReadLine().ToLower();
-                var filteredStaff = filteredByLocation.Where(helper => helper.GetWorkMode().ToString().ToLower() == workMode);
+                filteredStaff = filteredByLocation.Where(helper => helper.GetWorkMode().ToString().ToLower() == workMode);
                 if (!filteredStaff.Any())
                 {
                     Console.WriteLine("No domestic helper suits your work mode. Do you want to input again? (Y/N)");
-                    if (Console.ReadLine().ToUpper() != "Y") return;
+                    if (Console.ReadLine().ToUpper() != "Y") return false;
                     else continue;
                 }
 
@@ -103,7 +119,9 @@ namespace ConsoleApp1
                 }
                 continueFiltering = false;
             }
+            return true;
         }
+
         DomesticHelper searchIDHelper(string id)
         {
             foreach (DomesticHelper d in listHelper)
@@ -126,16 +144,17 @@ namespace ConsoleApp1
                 s = s.ToUpper();
                 if (s == "Y")
                 {
-                    if(d.GetWorkMode()=='F')
+                    //employer.AddHireHistory(d);
+                    if (d.GetWorkMode() == "F")
                     {
-                        LongtermContract l = new LongtermContract(this.employer,d);
+                        LongtermContractByApp l = new LongtermContractByApp(this.employer, d);
                         this.employer.ListContract.Add(l);
                         d.ListContracts.Add(l);
                         l.printContract();
-                    }    
+                    }
                     else
                     {
-                        ShorttermContract l = new ShorttermContract(this.employer, d);
+                        ShortTermContractByApp l = new ShortTermContractByApp(this.employer, d);
                         this.employer.ListContract.Add(l);
                         d.ListContracts.Add(l);
                         l.printContract();
@@ -150,8 +169,5 @@ namespace ConsoleApp1
             Console.Write("Input location: ");
             string l = Console.ReadLine();
         }
-
-
-
     }
 }

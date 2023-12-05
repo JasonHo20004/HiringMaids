@@ -9,14 +9,35 @@ namespace ConsoleApp1
     internal class Rating
     {
         //Attributes
-        float score;
+        int score;
         string comment;
+        DateTime feedbackDate;
         // Constructor
-        public Rating(float score, string comment)
+        public Rating(int score, string comment)
         {
             this.score = score;
             this.comment = comment;
         }
+        public Rating() { }
         //Methods
+        public void InputRating()
+        {
+            DateTime d = DateTime.Now;
+            this.feedbackDate = d;
+            Console.Write("Enter score: ");
+            int n=int.Parse(Console.ReadLine());
+            this.score = n;
+            Console.Write("Enter your feedback: ");
+            this.comment = Console.ReadLine();
+        }
+        public void PrintFeedback()
+        {
+            Console.WriteLine("**********************************");
+            Console.WriteLine("Date: "+this.feedbackDate);
+            Console.WriteLine("Score: "+this.score);
+            Console.WriteLine("Comment: "+this.comment);
+            Console.WriteLine("**********************************");
+        }
+        
     }
 }

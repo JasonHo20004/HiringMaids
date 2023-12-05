@@ -6,26 +6,26 @@ using System.Threading.Tasks;
 
 namespace ConsoleApp1
 {
-    internal class LongtermContract : Contract
+    internal class LongtermContractByApp : ContractByApp
     {
-        public LongtermContract(DateTime startDate, DateTime endDate, int duration, Employer employer, DomesticHelper domesticHelper, string workDescription, string location) : base(startDate, endDate, duration, employer, domesticHelper, workDescription, location)
+        public LongtermContractByApp(DateTime startDate, DateTime endDate, int duration, Employer employer, DomesticHelper domesticHelper, string workDescription, string location) : base(startDate, endDate, duration, employer, domesticHelper, workDescription, location)
         {
 
         }
 
-        public LongtermContract(DateTime startDate, DateTime endDate, Employer employer, DomesticHelper domesticHelper, string workDescription, string location) : base(startDate, endDate,  employer, domesticHelper, workDescription, location)
+        public LongtermContractByApp(DateTime startDate, DateTime endDate, Employer employer, DomesticHelper domesticHelper, string workDescription, string location) : base(startDate, endDate, employer, domesticHelper, workDescription, location)
         {
             this.duration = 6;
         }
-        public LongtermContract(Employer employer,DomesticHelper domesticHelper):base(employer,domesticHelper)
+        public LongtermContractByApp(Employer employer, DomesticHelper domesticHelper) : base(employer, domesticHelper)
         {
-            
+
             this.duration = 6;
-            setupContract();
+            base.SetupContract();
         }
-        public override void printContract()
+        public override void PrintContract()
         {
-            base.printContract();
+            base.PrintContract();
             Console.WriteLine("Article 1: Term and contract work");
             Console.WriteLine(". Type of labor contract: Labor contract with a term of " + this.duration + " months");
             Console.WriteLine(". Since " + this.startDate.ToShortDateString() + " to " + this.endDate.ToShortDateString());
@@ -38,12 +38,13 @@ namespace ConsoleApp1
             Console.WriteLine(". Bonus regime: Hihihi");
             Console.WriteLine("------------------------------------------- END -------------------------------------------");
         }
-        public override void setupContract()
+        public void SetupContract()
         {
-            base.setupContract();
+            base.SetupContract();
             DateTime d = DateTime.Now;
             this.startDate = d;
             this.endDate = d.AddMonths(this.duration);
         }
     }
+
 }

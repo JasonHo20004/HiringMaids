@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Net;
 using System.Text;
@@ -14,20 +15,36 @@ namespace ConsoleApp1
         protected string name;
         protected string phoneNumber;
         protected string address;
-        string id;
+        protected string id;
         protected DateTime dob;
 
         //Constructor
-        public Person(string id, string name, string phoneNumber, string address, DateTime dob)
+        public Person(string id, string name, string phoneNumber, string address, string dob)
         {
+            string format = "dd/MM/yyyy";
             this.id = id;
             this.name = name;
             this.phoneNumber = phoneNumber;
             this.address = address;
-            this.dob = dob;
+            this.dob = DateTime.ParseExact(dob, format, CultureInfo.InvariantCulture);
         }
-        public Person() { }
         // Methods
+        public string getPhoneNumber()
+        {
+            return this.phoneNumber;
+        }
+        public string getAddress()
+        {
+            return this.address;
+        }
+        public DateTime getDob()
+        {
+            return this.dob;
+        }
+        public string getID()
+        {
+            return this.id;
+        }
         public virtual string toString()
         {
             string info = $"Name: {name}\t";
@@ -35,22 +52,30 @@ namespace ConsoleApp1
             info += $"ID: {this.id} \t";
             info += $"Phone Number: {phoneNumber}\t";
             info += $"Address: {address} \t";
-
             return info;
         }
-        public virtual void printInfoOnRow()
+        
+        public virtual void PrintInfoOnRow()
         {
             Console.WriteLine(toString());
         }
+        
 
-        public virtual void printInforInColumn()
+        public void PrintInforInColumn()
         {
-            Console.WriteLine("* Name: " + this.name);
-            Console.WriteLine("* ID: " + this.id);
-            Console.WriteLine("* Date of birth: " + this.dob.ToShortDateString());
-            Console.WriteLine("* Phone number: " + this.phoneNumber);
-            Console.WriteLine("* Address: " + this.address);
+            Console.WriteLine("----------------------------");
+            Console.WriteLine($"{"Name:",-15} | {this.name}");
+            Console.WriteLine($"{"ID:",-15} | {this.id}");
+            Console.WriteLine($"{"Date of birth:",-15} | {this.dob.ToShortDateString()}");
+            Console.WriteLine($"{"Phone number:",-15} | {this.phoneNumber}");
+            Console.WriteLine($"{"Address:",-15} | {this.address}");
+            Console.WriteLine("----------------------------\n");
         }
+        public string GetName()
+        {
+            return this.name;
+        }
+
     }
 
 }

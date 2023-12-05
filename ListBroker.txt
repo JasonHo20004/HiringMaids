@@ -1,0 +1,7 @@
+﻿BrokerInfo; 052204307418;Xuan Huy;0123456;Quan 2;24/06/2004;0.1;001
+HelperInfo; 052304307418;Cuong;0123456;Quan 2;24/06/2004;300;P;DH01;cooking;cleaning
+HelperInfo; 052304307418;Sang;0123456;Quan 2;24/06/2004;300;P;DH02;cooking;cleaning
+
+BrokerInfo; 052204307418;Nhat Quang;0123456;Quan 2;24/06/2004;0.2;002
+HelperInfo; 052304307418;Dat;0123456;Quan 2;24/06/2004;300;P;DH01;cooking;cleaning
+HelperInfo; 052304307418;Khanh;0123456;Quan 2;24/06/2004;300;P;DH02;cooking;cleaning
